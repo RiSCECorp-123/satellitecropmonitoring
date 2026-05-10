@@ -4,6 +4,9 @@ import { useState } from "react";
 
 import "../styles/vineyard.unique.css";
 
+import {VineyardImg} from '../assets/Vineyard.jpg';
+import {Healthy} from '../assets/Vine.png';
+import {Unhealthy} from '../assets/affected-vine.png';
 const VineyardHoverLayer = () => {
 
   /* PLANT STATUS */
@@ -96,7 +99,7 @@ const VineyardHoverLayer = () => {
 
       {/* SATELLITE IMAGE */}
       <img
-        src="/assets/Vineyard.jpg"
+        src={VineyardImg}
         alt="satellite"
 
         className="risce-vineyard-main-image"
@@ -122,8 +125,8 @@ const VineyardHoverLayer = () => {
           <img
   src={
     hoveredPlant === 1
-      ? `${import.meta.env.BASE_URL}assets/Vine.png`
-      : `${import.meta.env.BASE_URL}assets/affected-vine.png`
+      ? {Healthy}
+      : {Unhealthy}
   }
 
   alt="plant"
