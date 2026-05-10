@@ -1,4 +1,4 @@
-// src/components/VineyardHoverLayer.jsx
+
 
 import { useState } from "react";
 
@@ -17,14 +17,7 @@ const VineyardHoverLayer = () => {
       y: 0
     });
 
-  /*
-    HEALTH DETECTION
-
-    DARK AREA  = HEALTHY
-    LIGHT AREA = DYING
-
-    This is simulated AI satellite interpretation.
-  */
+  
 
   const detectPlantHealth = (
     mouseX,
