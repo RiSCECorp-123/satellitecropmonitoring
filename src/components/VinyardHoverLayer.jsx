@@ -4,9 +4,9 @@ import { useState } from "react";
 
 import "../styles/vineyard.unique.css";
 
-import {VineyardImg} from '../assets/Vineyard.jpg';
-import {Healthy} from '../assets/Vine.png';
-import {Unhealthy} from '../assets/unhealthy.png';
+import VineyardImg from '../assets/Vineyard.jpg';
+import Healthy from '../assets/Vine.png';
+import Unhealthy from '../assets/unhealthy.png';
 
 const VineyardHoverLayer = () => {
 
