@@ -1,0 +1,132 @@
+/* ADD THIS TO map.unique.css */
+
+/* MAIN WRAPPER */
+.risce-map-main-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* MAP */
+.risce-map-container {
+  flex: 2;
+}
+
+/* TOOLTIP */
+.risce-map-tooltip {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b2d1f;
+  padding: 5px 8px;
+}
+
+/* SATELLITE PANEL */
+.risce-satellite-preview-panel {
+  flex: 1;
+  min-width: 340px;
+  position: relative;
+}
+
+/* SATELLITE IMAGE */
+.risce-satellite-preview-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* VINEYARD CARD */
+.risce-vineyard-hover-card {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 220px;
+
+  background: white;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  animation: risceFadeIn 0.3s ease;
+}
+
+/* IMAGE */
+.risce-vineyard-hover-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* TITLE */
+.risce-vineyard-hover-title {
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0b2d1f;
+  text-align: center;
+}
+
+/* ANIMATION */
+@keyframes risceFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+
+  .risce-map-main-wrapper {
+    flex-direction: column;
+  }
+
+  .risce-satellite-preview-panel {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .risce-satellite-preview-image {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .risce-satellite-preview-image {
+    height: 280px;
+  }
+
+  .risce-vineyard-hover-card {
+    width: 180px;
+  }
+
+  .risce-vineyard-hover-image {
+    height: 110px;
+  }
+}
+/* ADD THIS TO src/styles/map.unique.css */
+
+.risce-map-tooltip {
+  padding: 8px 12px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #123524;
+
+  font-family: "Poppins", sans-serif;
+}

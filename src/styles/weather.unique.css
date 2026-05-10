@@ -1,0 +1,110 @@
+/* src/styles/weather.unique.css */
+
+/* CARD */
+.risce-weather-card {
+  width: 100%;
+
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 24px 28px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 25px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+  gap: 20px;
+}
+
+/* LEFT */
+.risce-weather-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+/* ICON */
+.risce-weather-icon {
+  font-size: 60px;
+
+  color: #FDB813;
+}
+
+/* CONDITION */
+.risce-weather-left h2 {
+  margin: 0;
+
+  font-size: 28px;
+
+  color: #123524;
+
+  font-weight: 700;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* TEMP */
+.risce-weather-left p {
+  margin-top: 5px;
+
+  font-size: 18px;
+
+  color: #555;
+}
+
+/* RIGHT */
+.risce-weather-right {
+  text-align: right;
+}
+
+/* DETAILS */
+.risce-weather-right p {
+  margin: 6px 0;
+
+  color: #444;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+
+/* ALERT */
+.risce-weather-alert {
+  color: #0d6b37 !important;
+
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .risce-weather-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .risce-weather-right {
+    text-align: left;
+  }
+
+  .risce-weather-icon {
+    font-size: 48px;
+  }
+
+  .risce-weather-left h2 {
+    font-size: 22px;
+  }
+}
