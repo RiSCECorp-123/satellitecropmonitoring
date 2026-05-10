@@ -6,7 +6,8 @@ import "../styles/vineyard.unique.css";
 
 import {VineyardImg} from '../assets/Vineyard.jpg';
 import {Healthy} from '../assets/Vine.png';
-import {Unhealthy} from '../assets/affected-vine.png';
+import {Unhealthy} from '../assets/unhealthy.png';
+
 const VineyardHoverLayer = () => {
 
   /* PLANT STATUS */
