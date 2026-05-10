@@ -120,16 +120,16 @@ const VineyardHoverLayer = () => {
 
           {/* IMAGE */}
           <img
-            src={
-              hoveredPlant === 1
-                ? "/assets/Vine.png" 
-                : "/assets/affected-vine.png"
-            }
+  src={
+    hoveredPlant === 1
+      ? `${import.meta.env.BASE_URL}assets/Vine.png`
+      : `${import.meta.env.BASE_URL}assets/affected-vine.png`
+  }
 
-            alt="plant"
+  alt="plant"
 
-            className="risce-plant-preview-image"
-          />
+  className="risce-plant-preview-image"
+/>
 
           {/* LABEL */}
           <p>
