@@ -122,7 +122,7 @@ const VineyardHoverLayer = () => {
           <img
             src={
               hoveredPlant === 1
-                ? "/assets/Vine.png"
+                ? "/assets/Vine.png" 
                 : "/assets/affected-vine.png"
             }
 
