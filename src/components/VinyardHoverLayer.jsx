@@ -124,11 +124,11 @@ const VineyardHoverLayer = () => {
 
           {/* IMAGE */}
           <img
-  src={
-    hoveredPlant === 1
-      ? {Healthy}
-      : {Unhealthy}
-  }
+  src=
+    {hoveredPlant === 1
+      ? Healthy
+      : Unhealthy}
+  
 
   alt="plant"
 
