@@ -28,8 +28,9 @@ const Login = () => {
 
   return (
     <div className="risce-login-container">
+        <h1 style ={{textAlign:"center"}}>RISCE - <h3> Satellite Crop Monitoring</h3></h1>
+        <p style ={{textAlign:"center"}}>An end-to-end solution for farmers</p>
       <div className="risce-login-box">
-        
         <h1>{t.login}</h1>
 
         <input
