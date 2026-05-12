@@ -28,8 +28,8 @@ const Login = () => {
 
   return (
     <div className="risce-login-container">
-        <h1 style ={{textAlign:"center", color: "#fffffff"}}>RISCE-Satellite Crop Monitoring</h1>
-        <p style ={{textAlign:"center", color: "#fffffff"}}>An end-to-end solution for farmers</p>
+        <h1 style ={{textAlign:"center", color: "white"}}>RISCE-Satellite Crop Monitoring</h1>
+        <p style ={{textAlign:"center", color: "white"}}>An end-to-end solution for farmers</p>
       <div className="risce-login-box">
         <h1>{t.login}</h1>
 
