@@ -28,12 +28,12 @@ const EmptyLand = () => {
       crops: [
 
         {
-          image: {Applefruit},
+          image: Applefruit,
           cropName: "Apple"
         },
 
         {
-          image: {Pear},
+          image: Pear,
           cropName: "Pear"
         }
       ]
@@ -45,7 +45,7 @@ const EmptyLand = () => {
       crops: [
 
         {
-          image: {Sunflower},
+          image: Sunflower,
           cropName: "Sunflower"
         }
       ]
@@ -57,12 +57,12 @@ const EmptyLand = () => {
       crops: [
 
         {
-          image: {Corn},
+          image: Corn,
           cropName: "Corn"
         },
 
         {
-          image: {Rice},
+          image: Rice,
           cropName: "Rice"
         }
       ]
@@ -74,12 +74,12 @@ const EmptyLand = () => {
       crops: [
 
         {
-          image: {Soybean},
+          image: Soybean,
           cropName: "Soy"
         },
 
         {
-          image: {Lentils},
+          image: Lentils,
           cropName: "Lentils"
         }
       ]
