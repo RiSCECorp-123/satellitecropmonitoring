@@ -5,6 +5,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../styles/emptyland.unique.css";
+import Applefruit from '../assets/Apple.jpg';
+import Corn from '../assets/Corn.jpg';
+import Lentils from '../assets/Lentils.jpg';
+import Pear from '../assets/Pear.jpg';
+import Soybean from '../assets/Soybean.jpg';
+import Sunflower from '../assets/Rice.jpg';
+import Rice from '../assets/Rice.jpg';
 
 const EmptyLand = () => {
 
@@ -21,12 +28,12 @@ const EmptyLand = () => {
       crops: [
 
         {
-          image: "/assets/Apple.jpg",
+          image: {Applefruit},
           cropName: "Apple"
         },
 
         {
-          image: "/assets/Pear.jpg",
+          image: {Pear},
           cropName: "Pear"
         }
       ]
@@ -38,7 +45,7 @@ const EmptyLand = () => {
       crops: [
 
         {
-          image: "/assets/Sunflower.jpg",
+          image: {Sunflower},
           cropName: "Sunflower"
         }
       ]
@@ -50,12 +57,12 @@ const EmptyLand = () => {
       crops: [
 
         {
-          image: "/assets/Corn.jpg",
+          image: {Corn},
           cropName: "Corn"
         },
 
         {
-          image: "/assets/Rice.jpg",
+          image: {Rice},
           cropName: "Rice"
         }
       ]
@@ -67,12 +74,12 @@ const EmptyLand = () => {
       crops: [
 
         {
-          image: "/assets/Soybean.jpg",
+          image: {Soybean},
           cropName: "Soy"
         },
 
         {
-          image: "/assets/Lentils.jpg",
+          image: {Lentils},
           cropName: "Lentils"
         }
       ]
