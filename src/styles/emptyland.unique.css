@@ -1,4 +1,5 @@
-/* PAGE */
+/* src/styles/emptyland.unique.css */
+
 .risce-empty-land-page {
 
   width: 100%;
@@ -7,140 +8,322 @@
 
   background:
     linear-gradient(
-      rgba(0,0,0,0.55),
-      rgba(0,0,0,0.55)
-    ),
-    url("/assets/drought-land.jpg");
+      135deg,
+      #062d1f,
+      #0f5132,
+      #124734
+    );
 
-  background-size: cover;
-
-  background-position: center;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  padding: 30px;
+  padding: 40px;
 
   box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
+
+  color: white;
 }
 
-/* CARD */
-.risce-empty-land-overlay {
+/* TOP */
+.risce-empty-land-top-section {
 
   width: 100%;
 
-  max-width: 900px;
-
-  background: rgba(255,255,255,0.1);
-
-  backdrop-filter: blur(10px);
-
-  border:
-    1px solid rgba(255,255,255,0.2);
-
-  border-radius: 24px;
-
-  padding: 60px 40px;
-
   text-align: center;
 
-  box-shadow:
-    0 15px 45px rgba(0,0,0,0.25);
+  margin-bottom: 50px;
 }
 
-/* TITLE */
 .risce-empty-land-heading {
 
   font-size: 52px;
 
   font-weight: 700;
 
-  color: white;
-
-  margin-bottom: 20px;
-
-  font-family: "Poppins", sans-serif;
+  margin-bottom: 15px;
 }
 
-/* SUBTITLE */
 .risce-empty-land-subheading {
 
-  font-size: 30px;
+  font-size: 28px;
 
-  font-weight: 600;
+  color: #ffe082;
 
-  color: #FFD54F;
-
-  margin-bottom: 25px;
-
-  font-family: "Poppins", sans-serif;
+  margin-bottom: 15px;
 }
 
-/* DESCRIPTION */
 .risce-empty-land-description {
 
-  font-size: 22px;
+  font-size: 20px;
 
   line-height: 1.8;
 
-  color: white;
-
-  max-width: 700px;
+  max-width: 800px;
 
   margin: auto;
 
-  font-family: "Poppins", sans-serif;
+  color: #f1f1f1;
+}
+
+/* MAIN GRID */
+.risce-empty-land-main-grid {
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1.2fr 1fr;
+
+  gap: 35px;
+
+  align-items: flex-start;
+}
+
+/* COLUMN */
+.risce-column-heading {
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  margin-bottom: 30px;
+
+  color: #ffffff;
+}
+
+/* LEFT COLUMN */
+.risce-empty-land-left-column {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.risce-category-card {
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  padding: 24px;
+
+  border-radius: 18px;
+
+  transition: 0.3s ease;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+}
+
+.risce-category-card:hover {
+
+  transform: translateY(-4px);
+
+  background:
+    rgba(255,255,255,0.12);
+}
+
+.risce-category-title {
+
+  font-size: 18px;
+
+  line-height: 1.6;
+
+  font-weight: 600;
+}
+
+/* CENTER COLUMN */
+.risce-empty-land-center-column {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.risce-crop-image-card {
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  transition: 0.3s ease;
+}
+
+.risce-crop-image-card:hover {
+
+  transform: scale(1.02);
+}
+
+.risce-crop-image {
+
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+}
+
+.risce-crop-title {
+
+  padding: 18px;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+  text-align: center;
+}
+
+/* RIGHT COLUMN */
+.risce-empty-land-right-column {
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.risce-preference-container {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+}
+
+.risce-preference-button {
+
+  width: 100%;
+
+  padding: 22px;
+
+  border: none;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+}
+
+.risce-preference-button:hover {
+
+  background:
+    rgba(255,255,255,0.15);
+
+  transform: translateY(-3px);
+}
+
+.risce-preference-button-active {
+
+  background: #8BC34A;
+
+  color: #062d1f;
+
+  border: none;
+
+  box-shadow:
+    0 8px 25px rgba(139,195,74,0.4);
 }
 
 /* RESPONSIVE */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
 
-  .risce-empty-land-heading {
-    font-size: 42px;
+  .risce-empty-land-main-grid {
+
+    grid-template-columns: 1fr;
   }
 
-  .risce-empty-land-subheading {
-    font-size: 24px;
-  }
+  .risce-column-heading {
 
-  .risce-empty-land-description {
-    font-size: 18px;
+    text-align: center;
   }
 }
 
 @media (max-width: 768px) {
 
-  .risce-empty-land-overlay {
-    padding: 40px 25px;
+  .risce-empty-land-page {
+
+    padding: 25px;
   }
 
   .risce-empty-land-heading {
-    font-size: 34px;
+
+    font-size: 38px;
   }
 
   .risce-empty-land-subheading {
-    font-size: 20px;
+
+    font-size: 22px;
   }
 
   .risce-empty-land-description {
+
     font-size: 16px;
+  }
+
+  .risce-crop-image {
+
+    height: 180px;
+  }
+
+  .risce-preference-button {
+
+    font-size: 16px;
+
+    padding: 18px;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
 
   .risce-empty-land-heading {
-    font-size: 28px;
+
+    font-size: 30px;
   }
 
   .risce-empty-land-subheading {
+
     font-size: 18px;
   }
 
-  .risce-empty-land-description {
-    font-size: 14px;
+  .risce-column-heading {
+
+    font-size: 22px;
+  }
+
+  .risce-category-title {
+
+    font-size: 15px;
+  }
+
+  .risce-crop-title {
+
+    font-size: 16px;
   }
 }
