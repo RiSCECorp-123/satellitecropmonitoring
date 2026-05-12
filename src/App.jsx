@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import VineyardDetails from "./pages/VineyardDetails";
 
 import LanguageDropdown from "./components/LanguageDropdown";
+import EmptyLand from "./pages/EmptyLand";
 
 function App() {
 
@@ -41,6 +42,10 @@ function App() {
         <Route
           path="/vineyard"
           element={<VineyardDetails />}
+        />
+          <Route
+          path="/empty-land"
+          element={<EmptyLand />}
         />
 
       </Routes>

@@ -1,0 +1,146 @@
+/* PAGE */
+.risce-empty-land-page {
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.55)
+    ),
+    url("/assets/drought-land.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+}
+
+/* CARD */
+.risce-empty-land-overlay {
+
+  width: 100%;
+
+  max-width: 900px;
+
+  background: rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+
+  border:
+    1px solid rgba(255,255,255,0.2);
+
+  border-radius: 24px;
+
+  padding: 60px 40px;
+
+  text-align: center;
+
+  box-shadow:
+    0 15px 45px rgba(0,0,0,0.25);
+}
+
+/* TITLE */
+.risce-empty-land-heading {
+
+  font-size: 52px;
+
+  font-weight: 700;
+
+  color: white;
+
+  margin-bottom: 20px;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* SUBTITLE */
+.risce-empty-land-subheading {
+
+  font-size: 30px;
+
+  font-weight: 600;
+
+  color: #FFD54F;
+
+  margin-bottom: 25px;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* DESCRIPTION */
+.risce-empty-land-description {
+
+  font-size: 22px;
+
+  line-height: 1.8;
+
+  color: white;
+
+  max-width: 700px;
+
+  margin: auto;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+
+  .risce-empty-land-heading {
+    font-size: 42px;
+  }
+
+  .risce-empty-land-subheading {
+    font-size: 24px;
+  }
+
+  .risce-empty-land-description {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .risce-empty-land-overlay {
+    padding: 40px 25px;
+  }
+
+  .risce-empty-land-heading {
+    font-size: 34px;
+  }
+
+  .risce-empty-land-subheading {
+    font-size: 20px;
+  }
+
+  .risce-empty-land-description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .risce-empty-land-heading {
+    font-size: 28px;
+  }
+
+  .risce-empty-land-subheading {
+    font-size: 18px;
+  }
+
+  .risce-empty-land-description {
+    font-size: 14px;
+  }
+}

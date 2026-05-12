@@ -39,7 +39,9 @@ const GoogleMapView = () => {
   const [position, setPosition] =
     useState(null);
 
+  /* CHECK VINEYARD */
   const isVineyard = (name) => {
+
     return (
       name.toLowerCase().includes("vineyard") ||
       name.toLowerCase().includes("viyeyard")
@@ -74,6 +76,7 @@ const GoogleMapView = () => {
               strokeWeight: 5
             }}
 
+            /* HOVER */
             onMouseOver={(e) => {
 
               setHovered(field.name);
@@ -84,22 +87,32 @@ const GoogleMapView = () => {
               });
             }}
 
+            /* REMOVE HOVER */
             onMouseOut={() => {
+
               setHovered(null);
             }}
 
+            /* CLICK */
             onClick={() => {
 
+              /* VINEYARD */
               if (isVineyard(field.name)) {
 
                 navigate("/vineyard");
+              }
 
+              /* EMPTY LAND */
+              else if (field.id === 3) {
+
+                navigate("/empty-land");
               }
             }}
           />
 
         ))}
 
+        {/* TOOLTIP */}
         {hovered && position && (
 
           <InfoWindow position={position}>
