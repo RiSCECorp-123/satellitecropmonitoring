@@ -29,7 +29,7 @@ export const fieldPolygons = [
     ]
   },
   {
-    id: 3,
+    id:3,
     name: "Empty Land",
     color: "#9E9E9E",
     paths: [

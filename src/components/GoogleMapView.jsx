@@ -103,7 +103,7 @@ const GoogleMapView = () => {
               }
 
               /* EMPTY LAND */
-              else if (field.name === "Empty Land") {
+              else if (field.id === 3 ) {
 
                 navigate("/empty-land");
               }
