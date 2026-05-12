@@ -10,7 +10,7 @@ import Corn from '../assets/Corn.jpg';
 import Lentils from '../assets/Lentils.jpg';
 import Pear from '../assets/Pear.jpg';
 import Soybean from '../assets/Soybean.jpg';
-import Sunflower from '../assets/Rice.jpg';
+import Sunflower from '../assets/Sunflower.jpg';
 import Rice from '../assets/Rice.jpg';
 
 const EmptyLand = () => {
