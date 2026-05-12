@@ -9,38 +9,78 @@ const EmptyLand = () => {
   const [selectedPreferences, setSelectedPreferences] =
     useState([]);
 
-  const cropCategories = [
+  
+//   for crop categories 
+   const cropCategories = [
 
-    {
-      title: "Drought Resilient Fruit Trees",
-      image: "/assets/apple-pears.jpg",
-      cropName: "Apple & Pears"
-    },
+  {
+    title: "Drought Resilient Fruit Trees",
 
-    {
-      title: "Drought Resilient Horticulture",
-      image: "/assets/sunflower.jpg",
-      cropName: "Sunflower"
-    },
+    images: [
+      "/assets/apple.jpg",
+      "/assets/pear.jpg"
+    ],
 
-    {
-      title: "Drought Resilient Cereals",
-      image: "/assets/corn-rice.jpg",
-      cropName: "Corn & Rice"
-    },
+    cropNames: [
+      "Apple",
+      "Pear"
+    ]
+  },
 
-    {
-      title: "Drought Resilient Legumes",
-      image: "/assets/soy-lentils.jpg",
-      cropName: "Soy & Lentils"
-    },
+  {
+    title: "Drought Resilient Horticulture",
 
-    {
-      title: "You Can Add More",
-      image: "/assets/more-crops.jpg",
-      cropName: "Custom Crop"
-    }
-  ];
+    images: [
+      "/assets/sunflower.jpg"
+    ],
+
+    cropNames: [
+      "Sunflower"
+    ]
+  },
+
+  {
+    title: "Drought Resilient Cereals",
+
+    images: [
+      "/assets/corn.jpg",
+      "/assets/rice.jpg"
+    ],
+
+    cropNames: [
+      "Corn",
+      "Rice"
+    ]
+  },
+
+  {
+    title: "Drought Resilient Legumes",
+
+    images: [
+      "/assets/soy.jpg",
+      "/assets/lentils.jpg"
+    ],
+
+    cropNames: [
+      "Soy",
+      "Lentils"
+    ]
+  },
+
+  {
+    title: "You Can Add More",
+
+    images: [
+      "/assets/more-crops.jpg"
+    ],
+
+    cropNames: [
+      "Custom Crop"
+    ]
+  }
+];
+
+
 
   const preferences = [
 
@@ -132,27 +172,41 @@ const EmptyLand = () => {
             Suggested Crops
           </h2>
 
-          {cropCategories.map((item, index) => (
+         {cropCategories.map((item, index) => (
 
-            <div
-              key={index}
-              className="risce-crop-image-card"
-            >
+  <div
+    key={index}
+    className="risce-crop-image-card"
+  >
 
-              <img
-                src={item.image}
-                alt={item.cropName}
-                className="risce-crop-image"
-              />
+    <div className="risce-multiple-image-grid">
 
-              <div className="risce-crop-title">
+      {item.images.map((img, imgIndex) => (
 
-                {item.cropName}
+        <div
+          key={imgIndex}
+          className="risce-single-crop-wrapper"
+        >
 
-              </div>
+          <img
+            src={img}
+            alt={item.cropNames[imgIndex]}
+            className="risce-crop-image"
+          />
 
-            </div>
-          ))}
+          <div className="risce-crop-title">
+
+            {item.cropNames[imgIndex]}
+
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+))}
 
         </div>
 
