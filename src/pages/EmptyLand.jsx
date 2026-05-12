@@ -2,85 +2,82 @@
 
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import "../styles/emptyland.unique.css";
 
 const EmptyLand = () => {
 
+  const navigate = useNavigate();
+
   const [selectedPreferences, setSelectedPreferences] =
     useState([]);
 
-  
-//   for crop categories 
-   const cropCategories = [
+  const cropCategories = [
 
-  {
-    title: "Drought Resilient Fruit Trees",
+    {
+      title: "Drought Resilient Fruit Trees",
 
-    images: [
-      "/assets/apple.jpg",
-      "/assets/pear.jpg"
-    ],
+      crops: [
 
-    cropNames: [
-      "Apple",
-      "Pear"
-    ]
-  },
+        {
+          image: "/assets/Apple.jpg",
+          cropName: "Apple"
+        },
 
-  {
-    title: "Drought Resilient Horticulture",
+        {
+          image: "/assets/Pear.jpg",
+          cropName: "Pear"
+        }
+      ]
+    },
 
-    images: [
-      "/assets/sunflower.jpg"
-    ],
+    {
+      title: "Drought Resilient Horticulture",
 
-    cropNames: [
-      "Sunflower"
-    ]
-  },
+      crops: [
 
-  {
-    title: "Drought Resilient Cereals",
+        {
+          image: "/assets/Sunflower.jpg",
+          cropName: "Sunflower"
+        }
+      ]
+    },
 
-    images: [
-      "/assets/corn.jpg",
-      "/assets/rice.jpg"
-    ],
+    {
+      title: "Drought Resilient Cereals",
 
-    cropNames: [
-      "Corn",
-      "Rice"
-    ]
-  },
+      crops: [
 
-  {
-    title: "Drought Resilient Legumes",
+        {
+          image: "/assets/Corn.jpg",
+          cropName: "Corn"
+        },
 
-    images: [
-      "/assets/soy.jpg",
-      "/assets/lentils.jpg"
-    ],
+        {
+          image: "/assets/Rice.jpg",
+          cropName: "Rice"
+        }
+      ]
+    },
 
-    cropNames: [
-      "Soy",
-      "Lentils"
-    ]
-  },
+    {
+      title: "Drought Resilient Legumes",
 
-  {
-    title: "You Can Add More",
+      crops: [
 
-    images: [
-      "/assets/more-crops.jpg"
-    ],
+        {
+          image: "/assets/Soybean.jpg",
+          cropName: "Soy"
+        },
 
-    cropNames: [
-      "Custom Crop"
-    ]
-  }
-];
-
-
+        {
+          image: "/assets/Lentils.jpg",
+          cropName: "Lentils"
+        }
+      ]
+    }
+  ];
 
   const preferences = [
 
@@ -117,7 +114,7 @@ const EmptyLand = () => {
 
     <div className="risce-empty-land-page">
 
-      {/* HEADER */}
+      {/* TOP */}
       <div className="risce-empty-land-top-section">
 
         <h1 className="risce-empty-land-heading">
@@ -137,26 +134,54 @@ const EmptyLand = () => {
 
       </div>
 
-      {/* MAIN CONTENT */}
+      {/* MAIN GRID */}
       <div className="risce-empty-land-main-grid">
 
-        {/* LEFT COLUMN */}
-        <div className="risce-empty-land-left-column">
+        {/* LEFT SECTION */}
+        <div className="risce-empty-land-left-section">
 
           <h2 className="risce-column-heading">
-            Crop Categories
+            Suggested Crops
           </h2>
 
-          {cropCategories.map((item, index) => (
+          {cropCategories.map((category, index) => (
 
             <div
               key={index}
-              className="risce-category-card"
+              className="risce-suggestion-group"
             >
 
-              <div className="risce-category-title">
+              {/* TITLE */}
+              <h3 className="risce-suggestion-title">
 
-                {item.title}
+                {category.title}
+
+              </h3>
+
+              {/* IMAGE ROW */}
+              <div className="risce-suggestion-image-row">
+
+                {category.crops.map((crop, cropIndex) => (
+
+                  <div
+                    key={cropIndex}
+                    className="risce-suggestion-image-card"
+                  >
+                      <h4 style={{textAlign:"center"}}>Suggested</h4>
+                    <img
+                      src={crop.image}
+                      alt={crop.cropName}
+                      className="risce-suggestion-image"
+                      />
+
+                    <p className="risce-suggestion-image-title">
+
+                      {crop.cropName}
+
+                    </p>
+
+                  </div>
+                ))}
 
               </div>
 
@@ -165,52 +190,7 @@ const EmptyLand = () => {
 
         </div>
 
-        {/* CENTER COLUMN */}
-        <div className="risce-empty-land-center-column">
-
-          <h2 className="risce-column-heading">
-            Suggested Crops
-          </h2>
-
-         {cropCategories.map((item, index) => (
-
-  <div
-    key={index}
-    className="risce-crop-image-card"
-  >
-
-    <div className="risce-multiple-image-grid">
-
-      {item.images.map((img, imgIndex) => (
-
-        <div
-          key={imgIndex}
-          className="risce-single-crop-wrapper"
-        >
-
-          <img
-            src={img}
-            alt={item.cropNames[imgIndex]}
-            className="risce-crop-image"
-          />
-
-          <div className="risce-crop-title">
-
-            {item.cropNames[imgIndex]}
-
-          </div>
-
-        </div>
-      ))}
-
-    </div>
-
-  </div>
-))}
-
-        </div>
-
-        {/* RIGHT COLUMN */}
+        {/* RIGHT SECTION */}
         <div className="risce-empty-land-right-column">
 
           <h2 className="risce-column-heading">
@@ -241,6 +221,19 @@ const EmptyLand = () => {
 
               </button>
             ))}
+
+            {/* SUBMIT */}
+            <button
+              className="risce-submit-button"
+
+              onClick={() => {
+                navigate("/under-construction");
+              }}
+            >
+
+              Submit
+
+            </button>
 
           </div>
 
