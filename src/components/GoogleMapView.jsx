@@ -1,22 +1,7 @@
-import {
-  GoogleMap,
-  LoadScript,
-  Polygon,
-  InfoWindow
-} from "@react-google-maps/api";
-
-import {
-  useState
-} from "react";
-
-import {
-  useNavigate
-} from "react-router-dom";
-
-import {
-  fieldPolygons
-} from "../data/fieldPolygons";
-
+import { GoogleMap,LoadScript,Polygon,InfoWindow} from "@react-google-maps/api";
+import {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import {fieldPolygons} from "../data/fieldPolygons";
 import "../styles/map.unique.css";
 
 const containerStyle = {
@@ -28,7 +13,7 @@ const center = {
   lat: 51.3335,
   lng: 12.2535
 };
-
+ // converted Google Map push it to gitgub for pushing 
 const GoogleMapView = () => {
 
   const navigate = useNavigate();
@@ -39,7 +24,7 @@ const GoogleMapView = () => {
   const [position, setPosition] =
     useState(null);
 
-  /* CHECK VINEYARD */
+  // /* CHECK VINEYARD */  for the apocalypse and Actions for the github 
   const isVineyard = (name) => {
 
     return (
@@ -76,7 +61,7 @@ const GoogleMapView = () => {
               strokeWeight: 5
             }}
 
-            /* HOVER */
+            // on hover actions 
             onMouseOver={(e) => {
 
               setHovered(field.name);

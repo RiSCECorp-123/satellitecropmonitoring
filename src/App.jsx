@@ -1,13 +1,8 @@
 import {Routes,Route} from "react-router-dom";
-
 import Login from "./pages/Login";
-
 import Register from "./pages/Register";
-
 import Dashboard from "./pages/Dashboard";
-
 import VineyardDetails from "./pages/VineyardDetails";
-
 import LanguageDropdown from "./components/LanguageDropdown";
 import EmptyLand from "./pages/EmptyLand";
 
