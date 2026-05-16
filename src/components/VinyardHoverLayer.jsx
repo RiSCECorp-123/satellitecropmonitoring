@@ -266,9 +266,7 @@ const VineyardHoverLayer = () => {
 
                 
 
-                <li>
-                  Weevils
-                </li>
+                
 
                
 
