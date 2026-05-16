@@ -181,7 +181,7 @@ const VineyardHoverLayer = () => {
 
               {hoveredPlant === 1
                 ? "Healthy Vineyard"
-                : "Dying Vineyard"}
+                : "Diseased Vineyard"}
 
             </p>
 
@@ -245,7 +245,7 @@ const VineyardHoverLayer = () => {
             }}
           >
 
-            Check for Problems
+            Check for problems
 
           </button>
 
@@ -261,32 +261,16 @@ const VineyardHoverLayer = () => {
               <ul>
 
                 <li>
-                  Pest Attack
+                  Pest Attack ,  Grasshoppers or Weevils (Centainity-60%)
                 </li>
 
-                <li>
-                  Grasshoppers
-                </li>
+                
 
                 <li>
                   Weevils
                 </li>
 
-                <li>
-                  Beetles
-                </li>
-
-                <li>
-                  Thrips
-                </li>
-
-                <li>
-                  Water Deficiency
-                </li>
-
-                <li>
-                  Soil Stress
-                </li>
+               
 
               </ul>
 
