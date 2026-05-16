@@ -10,7 +10,7 @@ import Unhealthy from "../assets/unhealthy.png";
 
 const VineyardHoverLayer = () => {
 
-  /* HOVERED PLANT */
+  /* HOVER STATUS */
   const [hoveredPlant, setHoveredPlant] =
     useState(null);
 
@@ -21,7 +21,11 @@ const VineyardHoverLayer = () => {
       y: 0
     });
 
-  /* RIGHT SIDE PANEL */
+  /* LOCK CARD */
+  const [lockedCard, setLockedCard] =
+    useState(false);
+
+  /* RIGHT ANALYSIS PANEL */
   const [selectedProblemPlant, setSelectedProblemPlant] =
     useState(false);
 
@@ -29,11 +33,11 @@ const VineyardHoverLayer = () => {
   const [uploadedImage, setUploadedImage] =
     useState(null);
 
-  /* SUGGESTION */
+  /* SUGGESTIONS */
   const [showSuggestions, setShowSuggestions] =
     useState(false);
 
-  /* DETECT HEALTH */
+  /* HEALTH DETECTION */
   const detectPlantHealth = (
     mouseX,
     mouseY,
@@ -47,7 +51,7 @@ const VineyardHoverLayer = () => {
     const verticalRatio =
       mouseY / height;
 
-    /* HEALTHY AREA */
+    /* HEALTHY REGION */
     if (
       horizontalRatio < 0.45 &&
       verticalRatio < 0.55
@@ -55,12 +59,15 @@ const VineyardHoverLayer = () => {
       return 1;
     }
 
-    /* UNHEALTHY AREA */
+    /* UNHEALTHY REGION */
     return 0;
   };
 
   /* HOVER IMAGE */
   const handleMouseMove = (e) => {
+
+    /* DO NOT MOVE CARD */
+    if (lockedCard) return;
 
     const rect =
       e.currentTarget.getBoundingClientRect();
@@ -85,15 +92,22 @@ const VineyardHoverLayer = () => {
       x: mouseX,
       y: mouseY
     });
+
+    /* LOCK IF UNHEALTHY */
+    if (result === 0) {
+      setLockedCard(true);
+    }
   };
 
-  /* REMOVE HOVER */
-  const handleMouseLeave = () => {
+  /* RESET */
+  const resetHover = () => {
 
     setHoveredPlant(null);
+
+    setLockedCard(false);
   };
 
-  /* CLICK UNHEALTHY */
+  /* CLICK CARD */
   const handleCardClick = () => {
 
     if (hoveredPlant === 0) {
@@ -102,7 +116,7 @@ const VineyardHoverLayer = () => {
     }
   };
 
-  /* UPLOAD IMAGE */
+  /* IMAGE UPLOAD */
   const handleImageUpload = (e) => {
 
     const file = e.target.files[0];
@@ -118,10 +132,14 @@ const VineyardHoverLayer = () => {
 
   return (
 
-    <div className="risce-vineyard-main-layout">
+    <div className="risce-vineyard-flex-layout">
 
-      {/* LEFT */}
-      <div className="risce-vineyard-image-wrapper">
+      {/* LEFT SATELLITE */}
+      <div
+        className="risce-vineyard-image-wrapper"
+
+        onMouseLeave={resetHover}
+      >
 
         <img
           src={VineyardImg}
@@ -131,8 +149,6 @@ const VineyardHoverLayer = () => {
           className="risce-vineyard-main-image"
 
           onMouseMove={handleMouseMove}
-
-          onMouseLeave={handleMouseLeave}
         />
 
         {/* FLOATING CARD */}
@@ -169,12 +185,11 @@ const VineyardHoverLayer = () => {
 
             </p>
 
-            {/* CLICK TEXT */}
             {hoveredPlant === 0 && (
 
-              <div className="risce-click-text">
+              <div className="risce-click-hint">
 
-                Click to Inspect
+                Click To Inspect
 
               </div>
             )}
@@ -187,11 +202,11 @@ const VineyardHoverLayer = () => {
       {/* RIGHT PANEL */}
       {selectedProblemPlant && (
 
-        <div className="risce-right-problem-panel">
+        <div className="risce-analysis-panel">
 
-          <h2 className="risce-problem-heading">
+          <h2 className="risce-analysis-heading">
 
-            Vineyard Analysis
+            Vineyard Disease Analysis
 
           </h2>
 
@@ -202,9 +217,9 @@ const VineyardHoverLayer = () => {
                 : Unhealthy
             }
 
-            alt="problem"
+            alt="analysis"
 
-            className="risce-problem-image"
+            className="risce-analysis-image"
           />
 
           {/* UPLOAD */}
@@ -221,7 +236,7 @@ const VineyardHoverLayer = () => {
 
           </label>
 
-          {/* BUTTON */}
+          {/* CHECK */}
           <button
             className="risce-check-button"
 
@@ -234,10 +249,10 @@ const VineyardHoverLayer = () => {
 
           </button>
 
-          {/* SUGGESTIONS */}
+          {/* RESULTS */}
           {showSuggestions && (
 
-            <div className="risce-suggestion-box">
+            <div className="risce-result-box">
 
               <h3>
                 Possible Issues
@@ -250,7 +265,7 @@ const VineyardHoverLayer = () => {
                 </li>
 
                 <li>
-                  Various Grasshoppers
+                  Grasshoppers
                 </li>
 
                 <li>
@@ -266,11 +281,11 @@ const VineyardHoverLayer = () => {
                 </li>
 
                 <li>
-                  Water Related Issues
+                  Water Deficiency
                 </li>
 
                 <li>
-                  Nutrient Deficiency
+                  Soil Stress
                 </li>
 
               </ul>
@@ -281,13 +296,15 @@ const VineyardHoverLayer = () => {
 
               <a
                 href="https://www.fao.org"
+
                 target="_blank"
+
                 rel="noreferrer"
 
                 className="risce-farmer-link"
               >
 
-                Read Suggested Guidelines
+                Read Guidelines
 
               </a>
 
