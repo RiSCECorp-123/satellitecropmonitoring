@@ -1,28 +1,39 @@
-
+// src/components/VineyardHoverLayer.jsx
 
 import { useState } from "react";
 
 import "../styles/vineyard.unique.css";
 
-import VineyardImg from '../assets/Vineyard.jpg';
-import Healthy from '../assets/Vine.png';
-import Unhealthy from '../assets/unhealthy.png';
+import VineyardImg from "../assets/Vineyard.jpg";
+import Healthy from "../assets/Vine.png";
+import Unhealthy from "../assets/unhealthy.png";
 
 const VineyardHoverLayer = () => {
 
-  /* PLANT STATUS */
+  /* HOVERED PLANT */
   const [hoveredPlant, setHoveredPlant] =
     useState(null);
 
-  /* MOUSE POSITION */
+  /* CARD POSITION */
   const [cardPosition, setCardPosition] =
     useState({
       x: 0,
       y: 0
     });
 
-  
+  /* RIGHT SIDE PANEL */
+  const [selectedProblemPlant, setSelectedProblemPlant] =
+    useState(false);
 
+  /* USER IMAGE */
+  const [uploadedImage, setUploadedImage] =
+    useState(null);
+
+  /* SUGGESTION */
+  const [showSuggestions, setShowSuggestions] =
+    useState(false);
+
+  /* DETECT HEALTH */
   const detectPlantHealth = (
     mouseX,
     mouseY,
@@ -30,23 +41,13 @@ const VineyardHoverLayer = () => {
     height
   ) => {
 
-    /*
-      CUSTOM REGION LOGIC
-
-      You can later replace this
-      with real AI segmentation.
-    */
-
     const horizontalRatio =
       mouseX / width;
 
     const verticalRatio =
       mouseY / height;
 
-    /*
-      DARKER REGIONS
-    */
-
+    /* HEALTHY AREA */
     if (
       horizontalRatio < 0.45 &&
       verticalRatio < 0.55
@@ -54,14 +55,11 @@ const VineyardHoverLayer = () => {
       return 1;
     }
 
-    /*
-      WHITE / DRY REGIONS
-    */
-
+    /* UNHEALTHY AREA */
     return 0;
   };
 
-  /* HOVER */
+  /* HOVER IMAGE */
   const handleMouseMove = (e) => {
 
     const rect =
@@ -89,60 +87,212 @@ const VineyardHoverLayer = () => {
     });
   };
 
-  /* LEAVE */
+  /* REMOVE HOVER */
   const handleMouseLeave = () => {
+
     setHoveredPlant(null);
+  };
+
+  /* CLICK UNHEALTHY */
+  const handleCardClick = () => {
+
+    if (hoveredPlant === 0) {
+
+      setSelectedProblemPlant(true);
+    }
+  };
+
+  /* UPLOAD IMAGE */
+  const handleImageUpload = (e) => {
+
+    const file = e.target.files[0];
+
+    if (file) {
+
+      const imageUrl =
+        URL.createObjectURL(file);
+
+      setUploadedImage(imageUrl);
+    }
   };
 
   return (
 
-    <div className="risce-vineyard-image-wrapper">
+    <div className="risce-vineyard-main-layout">
 
-      {/* SATELLITE IMAGE */}
-      <img
-        src={VineyardImg}
-        alt="satellite"
+      {/* LEFT */}
+      <div className="risce-vineyard-image-wrapper">
 
-        className="risce-vineyard-main-image"
+        <img
+          src={VineyardImg}
 
-        onMouseMove={handleMouseMove}
+          alt="satellite"
 
-        onMouseLeave={handleMouseLeave}
-      />
+          className="risce-vineyard-main-image"
 
-      {/* AI DETECTION CARD */}
-      {hoveredPlant !== null && (
+          onMouseMove={handleMouseMove}
 
-        <div
-          className="risce-plant-preview-card"
+          onMouseLeave={handleMouseLeave}
+        />
 
-          style={{
-            top: cardPosition.y + 20,
-            left: cardPosition.x + 20
-          }}
-        >
+        {/* FLOATING CARD */}
+        {hoveredPlant !== null && (
 
-          {/* IMAGE */}
+          <div
+            className="risce-plant-preview-card"
+
+            style={{
+              top: cardPosition.y + 20,
+              left: cardPosition.x + 20
+            }}
+
+            onClick={handleCardClick}
+          >
+
+            <img
+              src={
+                hoveredPlant === 1
+                  ? Healthy
+                  : Unhealthy
+              }
+
+              alt="plant"
+
+              className="risce-plant-preview-image"
+            />
+
+            <p>
+
+              {hoveredPlant === 1
+                ? "Healthy Vineyard"
+                : "Dying Vineyard"}
+
+            </p>
+
+            {/* CLICK TEXT */}
+            {hoveredPlant === 0 && (
+
+              <div className="risce-click-text">
+
+                Click to Inspect
+
+              </div>
+            )}
+
+          </div>
+        )}
+
+      </div>
+
+      {/* RIGHT PANEL */}
+      {selectedProblemPlant && (
+
+        <div className="risce-right-problem-panel">
+
+          <h2 className="risce-problem-heading">
+
+            Vineyard Analysis
+
+          </h2>
+
           <img
-  src=
-    {hoveredPlant === 1
-      ? Healthy
-      : Unhealthy}
-  
+            src={
+              uploadedImage
+                ? uploadedImage
+                : Unhealthy
+            }
 
-  alt="plant"
+            alt="problem"
 
-  className="risce-plant-preview-image"
-/>
+            className="risce-problem-image"
+          />
 
-          {/* LABEL */}
-          <p>
+          {/* UPLOAD */}
+          <label className="risce-upload-button">
 
-            {hoveredPlant === 1
-              ? "Healthy Vineyard"
-              : "Dying Vineyard"}
+            Upload Photos of Plant
 
-          </p>
+            <input
+              type="file"
+              hidden
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+
+          </label>
+
+          {/* BUTTON */}
+          <button
+            className="risce-check-button"
+
+            onClick={() => {
+              setShowSuggestions(true);
+            }}
+          >
+
+            Check for Problems
+
+          </button>
+
+          {/* SUGGESTIONS */}
+          {showSuggestions && (
+
+            <div className="risce-suggestion-box">
+
+              <h3>
+                Possible Issues
+              </h3>
+
+              <ul>
+
+                <li>
+                  Pest Attack
+                </li>
+
+                <li>
+                  Various Grasshoppers
+                </li>
+
+                <li>
+                  Weevils
+                </li>
+
+                <li>
+                  Beetles
+                </li>
+
+                <li>
+                  Thrips
+                </li>
+
+                <li>
+                  Water Related Issues
+                </li>
+
+                <li>
+                  Nutrient Deficiency
+                </li>
+
+              </ul>
+
+              <h3>
+                General Farmer's Approach
+              </h3>
+
+              <a
+                href="https://www.fao.org"
+                target="_blank"
+                rel="noreferrer"
+
+                className="risce-farmer-link"
+              >
+
+                Read Suggested Guidelines
+
+              </a>
+
+            </div>
+          )}
 
         </div>
       )}

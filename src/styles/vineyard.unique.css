@@ -1,27 +1,38 @@
-/* REPLACE THESE CLASSES IN vineyard.unique.css */
+/* REPLACE vineyard.unique.css */
 
-/* IMAGE WRAPPER */
-.risce-vineyard-image-wrapper {
-  position: relative;
+.risce-vineyard-main-layout {
 
   width: 100%;
 
-  max-width: 1200px;
+  display: flex;
+
+  gap: 30px;
+
+  align-items: flex-start;
 
   margin-top: 30px;
+}
+
+/* LEFT IMAGE */
+.risce-vineyard-image-wrapper {
+
+  position: relative;
+
+  flex: 1;
 
   border-radius: 20px;
 
   overflow: hidden;
 
+  background: white;
+
   box-shadow:
     0 10px 40px rgba(0,0,0,0.14);
-
-  background: white;
 }
 
-/* IMAGE */
+/* SATELLITE */
 .risce-vineyard-main-image {
+
   width: 100%;
 
   height: 700px;
@@ -35,8 +46,9 @@
   user-select: none;
 }
 
-/* FLOATING AI CARD */
+/* FLOATING CARD */
 .risce-plant-preview-card {
+
   position: absolute;
 
   width: 230px;
@@ -52,14 +64,15 @@
 
   z-index: 100;
 
-  pointer-events: none;
-
   animation:
     riscePlantCardFade 0.18s ease;
+
+  cursor: pointer;
 }
 
 /* IMAGE */
 .risce-plant-preview-image {
+
   width: 100%;
 
   height: 160px;
@@ -67,8 +80,9 @@
   object-fit: cover;
 }
 
-/* TEXT */
+/* CARD TEXT */
 .risce-plant-preview-card p {
+
   padding: 14px;
 
   margin: 0;
@@ -84,16 +98,202 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* RIGHT PANEL */
+.risce-right-problem-panel {
+
+  width: 360px;
+
+  min-height: 700px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.14);
+}
+
+/* HEADING */
+.risce-problem-heading {
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  color: #123524;
+
+  margin-bottom: 20px;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* IMAGE */
+.risce-problem-image {
+
+  width: 100%;
+
+  height: 250px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  margin-bottom: 20px;
+}
+
+/* UPLOAD */
+.risce-upload-button {
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  background: #0f5132;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  margin-bottom: 18px;
+
+  transition: 0.3s ease;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.risce-upload-button:hover {
+
+  background: #146c43;
+}
+
+/* CHECK BUTTON */
+.risce-check-button {
+
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #8BC34A;
+
+  color: #062d1f;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-bottom: 25px;
+
+  transition: 0.3s ease;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.risce-check-button:hover {
+
+  transform: translateY(-3px);
+}
+
+/* SUGGESTIONS */
+.risce-suggestion-box {
+
+  background:
+    rgba(15,81,50,0.08);
+
+  border-radius: 18px;
+
+  padding: 20px;
+}
+
+.risce-suggestion-box h3 {
+
+  margin-top: 0;
+
+  color: #123524;
+
+  font-size: 20px;
+
+  margin-bottom: 15px;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.risce-suggestion-box ul {
+
+  padding-left: 20px;
+
+  margin-bottom: 25px;
+}
+
+.risce-suggestion-box li {
+
+  margin-bottom: 10px;
+
+  color: #123524;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  font-family: "Poppins", sans-serif;
+}
+
+/* LINK */
+.risce-farmer-link {
+
+  display: inline-block;
+
+  margin-top: 10px;
+
+  color: #0f5132;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.risce-farmer-link:hover {
+
+  text-decoration: underline;
+}
+
 /* ANIMATION */
 @keyframes riscePlantCardFade {
 
   from {
+
     opacity: 0;
+
     transform: scale(0.96);
   }
 
   to {
+
     opacity: 1;
+
     transform: scale(1);
   }
 }
@@ -101,56 +301,74 @@
 /* RESPONSIVE */
 @media (max-width: 1200px) {
 
-  .risce-vineyard-main-image {
-    height: 620px;
-  }
-}
+  .risce-vineyard-main-layout {
 
-@media (max-width: 992px) {
-
-  .risce-vineyard-main-image {
-    height: 520px;
+    flex-direction: column;
   }
 
-  .risce-plant-preview-card {
-    width: 200px;
-  }
+  .risce-right-problem-panel {
 
-  .risce-plant-preview-image {
-    height: 140px;
+    width: 100%;
+
+    min-height: auto;
   }
 }
 
 @media (max-width: 768px) {
 
   .risce-vineyard-main-image {
+
     height: 420px;
   }
 
   .risce-plant-preview-card {
+
     width: 170px;
   }
 
   .risce-plant-preview-image {
+
     height: 110px;
   }
 
-  .risce-plant-preview-card p {
-    font-size: 13px;
+  .risce-right-problem-panel {
+
+    padding: 20px;
   }
 }
 
 @media (max-width: 576px) {
 
   .risce-vineyard-main-image {
+
     height: 320px;
   }
 
   .risce-plant-preview-card {
+
     width: 150px;
   }
 
-  .risce-plant-preview-image {
-    height: 95px;
+  .risce-problem-heading {
+
+    font-size: 22px;
   }
+}
+.risce-click-text {
+
+  width: 100%;
+
+  padding: 10px;
+
+  background: #8BC34A;
+
+  color: #062d1f;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  font-family: "Poppins", sans-serif;
 }
