@@ -348,14 +348,7 @@ const VineyardHoverLayer = () => {
           Real stories from growers, farmers, and families who tend the vine —
           season after season, root to fruit.
         </p>
-        <a
-          className="vcs-source-link"
-          href="https://www.bbc.com/news/articles/c9v3d2gn22jo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          📰 Source: BBC News
-        </a>
+        
       </div>
  
       {/* STORY CARDS GRID */}
