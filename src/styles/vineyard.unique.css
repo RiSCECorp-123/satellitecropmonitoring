@@ -1,143 +1,159 @@
 /* REPLACE vineyard.unique.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-.risce-vineyard-main-layout {
+/* =========================================
+   MAIN FLEX LAYOUT
+========================================= */
+
+.risce-vineyard-flex-layout {
 
   width: 100%;
 
   display: flex;
 
-  gap: 30px;
+  gap: 35px;
 
   align-items: flex-start;
 
-  margin-top: 30px;
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #062d1f,
+      #0f5132,
+      #124734
+    );
+
+  font-family: "Poppins", sans-serif;
+
+  color: white;
 }
 
-/* LEFT IMAGE */
+/* =========================================
+   IMAGE WRAPPER
+========================================= */
+
 .risce-vineyard-image-wrapper {
 
   position: relative;
 
-  flex: 1;
-
-  border-radius: 20px;
-
-  overflow: hidden;
-
-  background: white;
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.14);
+  width: 70%;
 }
 
-/* SATELLITE */
 .risce-vineyard-main-image {
 
   width: 100%;
 
-  height: 700px;
+  border-radius: 24px;
 
   object-fit: cover;
 
   display: block;
 
-  cursor: crosshair;
-
-  user-select: none;
+  box-shadow:
+    0 15px 45px rgba(0,0,0,0.35);
 }
 
-/* FLOATING CARD */
+/* =========================================
+   FLOATING CARD
+========================================= */
+
 .risce-plant-preview-card {
 
   position: absolute;
 
-  width: 230px;
+  width: 220px;
 
-  background: white;
+  background:
+    rgba(255,255,255,0.08);
 
-  border-radius: 18px;
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
 
   overflow: hidden;
 
-  box-shadow:
-    0 12px 35px rgba(0,0,0,0.18);
-
-  z-index: 100;
-
-  animation:
-    riscePlantCardFade 0.18s ease;
+  z-index: 10;
 
   cursor: pointer;
+
+  animation: risceFadeIn 0.25s ease;
 }
 
-/* IMAGE */
 .risce-plant-preview-image {
 
   width: 100%;
 
-  height: 160px;
+  height: 140px;
 
   object-fit: cover;
 }
 
-/* CARD TEXT */
 .risce-plant-preview-card p {
 
   padding: 14px;
 
-  margin: 0;
-
-  font-size: 15px;
+  text-align: center;
 
   font-weight: 600;
+}
 
-  color: #123524;
+.risce-click-hint {
 
   text-align: center;
 
-  font-family: "Poppins", sans-serif;
+  padding-bottom: 14px;
+
+  color: #ffe082;
+
+  font-size: 14px;
+
+  font-weight: 600;
 }
 
-/* RIGHT PANEL */
-.risce-right-problem-panel {
+/* =========================================
+   RIGHT PANEL
+========================================= */
 
-  width: 360px;
+.risce-analysis-panel {
 
-  min-height: 700px;
+  width: 30%;
 
-  background: white;
+  background:
+    rgba(255,255,255,0.08);
 
-  border-radius: 20px;
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 24px;
 
   padding: 25px;
 
   box-sizing: border-box;
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.14);
 }
 
-/* HEADING */
-.risce-problem-heading {
+.risce-analysis-heading {
 
   font-size: 28px;
 
-  font-weight: 700;
-
-  color: #123524;
-
   margin-bottom: 20px;
 
-  font-family: "Poppins", sans-serif;
+  color: #ffe082;
 }
 
-/* IMAGE */
-.risce-problem-image {
+.risce-analysis-image {
 
   width: 100%;
 
-  height: 250px;
+  height: 240px;
 
   object-fit: cover;
 
@@ -146,55 +162,34 @@
   margin-bottom: 20px;
 }
 
-/* UPLOAD */
-.risce-upload-button {
+/* =========================================
+   BUTTONS
+========================================= */
 
-  width: 100%;
+.risce-upload-button,
 
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  padding: 16px;
-
-  border-radius: 14px;
-
-  background: #0f5132;
-
-  color: white;
-
-  font-size: 16px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  margin-bottom: 18px;
-
-  transition: 0.3s ease;
-
-  font-family: "Poppins", sans-serif;
-}
-
-.risce-upload-button:hover {
-
-  background: #146c43;
-}
-
-/* CHECK BUTTON */
 .risce-check-button {
 
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+
+  width: 70%;
 
   padding: 16px;
+
+  margin-top: 14px;
 
   border: none;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
-  background: #8BC34A;
+  background:
+    linear-gradient(
+      135deg,
+      #cddc39,
+      #8bc34a
+    );
 
   color: #062d1f;
 
@@ -204,76 +199,126 @@
 
   cursor: pointer;
 
-  margin-bottom: 25px;
+  text-align: center;
 
   transition: 0.3s ease;
-
-  font-family: "Poppins", sans-serif;
 }
+
+.risce-upload-button:hover,
 
 .risce-check-button:hover {
 
   transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 24px rgba(139,195,74,0.35);
 }
 
-/* SUGGESTIONS */
-.risce-suggestion-box {
+/* =========================================
+   RESULT BOX
+========================================= */
+
+.risce-result-box {
+
+  margin-top: 25px;
 
   background:
-    rgba(15,81,50,0.08);
+    rgba(255,255,255,0.05);
 
-  border-radius: 18px;
+  border-radius: 20px;
 
-  padding: 20px;
+  padding: 22px;
 }
 
-.risce-suggestion-box h3 {
-
-  margin-top: 0;
-
-  color: #123524;
-
-  font-size: 20px;
+.risce-result-box h3 {
 
   margin-bottom: 15px;
 
-  font-family: "Poppins", sans-serif;
+  color: #ffe082;
 }
 
-.risce-suggestion-box ul {
+.risce-result-box ul {
 
   padding-left: 20px;
 
-  margin-bottom: 25px;
+  line-height: 1.9;
 }
 
-.risce-suggestion-box li {
+/* =========================================
+   SUGGESTION BUTTONS
+========================================= */
 
-  margin-bottom: 10px;
+.risce-suggestion-heading {
 
-  color: #123524;
+  margin-top: 25px;
+
+  margin-bottom: 18px;
+}
+
+.risce-solution-button-container {
+
+  display: flex;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+
+  margin-bottom: 28px;
+}
+
+.risce-solution-button {
+
+  flex: 1;
+
+  min-width: 160px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #cddc39
+    );
+
+  color: #062d1f;
 
   font-size: 15px;
 
-  line-height: 1.6;
+  font-weight: 700;
 
-  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+
+  transition: 0.3s ease;
 }
 
-/* LINK */
+.risce-solution-button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 24px rgba(255,224,130,0.35);
+}
+
+/* =========================================
+   FARMER LINK
+========================================= */
+
 .risce-farmer-link {
 
   display: inline-block;
 
   margin-top: 10px;
 
-  color: #0f5132;
-
-  font-weight: 700;
+  color: #ffe082;
 
   text-decoration: none;
 
-  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 
 .risce-farmer-link:hover {
@@ -281,14 +326,340 @@
   text-decoration: underline;
 }
 
-/* ANIMATION */
-@keyframes riscePlantCardFade {
+/* =========================================
+   POPUP OVERLAY
+========================================= */
+
+.risce-popup-overlay {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  background:
+    rgba(0,0,0,0.7);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+
+  animation: risceFadeIn 0.3s ease;
+}
+
+/* =========================================
+   POPUP BOX
+========================================= */
+
+.risce-popup-box {
+
+  width: 90%;
+
+  max-width: 520px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f5132,
+      #124734
+    );
+
+  padding: 35px;
+
+  border-radius: 24px;
+
+  position: relative;
+
+  color: white;
+
+  box-shadow:
+    0 15px 45px rgba(0,0,0,0.45);
+
+  animation: riscePopupScale 0.3s ease;
+}
+
+.risce-popup-box h2 {
+
+  margin-bottom: 20px;
+
+  color: #ffe082;
+}
+
+.risce-popup-box ul {
+
+  padding-left: 22px;
+
+  line-height: 2;
+}
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.risce-popup-close {
+
+  position: absolute;
+
+  top: 15px;
+
+  right: 15px;
+
+  width: 36px;
+
+  height: 36px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #ffe082;
+
+  color: #062d1f;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.risce-popup-close:hover {
+
+  transform: rotate(90deg);
+}
+
+/* =========================================
+   STORIES SECTION
+========================================= */
+
+.vcs-section {
+
+  padding: 60px 40px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #041f15,
+      #0a3b28
+    );
+
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.vcs-header {
+
+  text-align: center;
+
+  margin-bottom: 50px;
+}
+
+.vcs-eyebrow {
+
+  color: #cddc39;
+
+  font-size: 15px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+.vcs-heading {
+
+  font-size: 42px;
+
+  margin-top: 10px;
+
+  margin-bottom: 15px;
+}
+
+.vcs-subheading {
+
+  max-width: 760px;
+
+  margin: auto;
+
+  line-height: 1.8;
+
+  color: #d8d8d8;
+}
+
+/* =========================================
+   STORY GRID
+========================================= */
+
+.vcs-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 30px;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.vcs-card {
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  border-radius: 22px;
+
+  padding: 24px;
+
+  transition: 0.3s ease;
+
+  backdrop-filter: blur(8px);
+}
+
+.vcs-card:hover {
+
+  transform: translateY(-5px);
+
+  background:
+    rgba(255,255,255,0.12);
+}
+
+.vcs-card-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+.vcs-icon {
+
+  font-size: 24px;
+}
+
+.vcs-tag {
+
+  background: #cddc39;
+
+  color: #062d1f;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.vcs-card-title {
+
+  font-size: 22px;
+
+  margin-bottom: 15px;
+
+  line-height: 1.5;
+}
+
+.vcs-card-excerpt {
+
+  color: #e0e0e0;
+
+  line-height: 1.8;
+
+  margin-bottom: 20px;
+}
+
+.vcs-card-footer {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.vcs-card-source {
+
+  color: #ffe082;
+
+  font-size: 14px;
+}
+
+.vcs-read-btn {
+
+  border: none;
+
+  padding: 10px 18px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #cddc39
+    );
+
+  color: #062d1f;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.vcs-read-btn:hover {
+
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes risceFadeIn {
+
+  from {
+
+    opacity: 0;
+  }
+
+  to {
+
+    opacity: 1;
+  }
+}
+
+@keyframes riscePopupScale {
 
   from {
 
     opacity: 0;
 
-    transform: scale(0.96);
+    transform: scale(0.85);
   }
 
   to {
@@ -299,212 +670,10 @@
   }
 }
 
-/* RESPONSIVE */
-@media (max-width: 1200px) {
+/* =========================================
+   RESPONSIVE
+========================================= */
 
-  .risce-vineyard-main-layout {
-
-    flex-direction: column;
-  }
-
-  .risce-right-problem-panel {
-
-    width: 100%;
-
-    min-height: auto;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .risce-vineyard-main-image {
-
-    height: 420px;
-  }
-
-  .risce-plant-preview-card {
-
-    width: 170px;
-  }
-
-  .risce-plant-preview-image {
-
-    height: 110px;
-  }
-
-  .risce-right-problem-panel {
-
-    padding: 20px;
-  }
-}
-
-@media (max-width: 576px) {
-
-  .risce-vineyard-main-image {
-
-    height: 320px;
-  }
-
-  .risce-plant-preview-card {
-
-    width: 150px;
-  }
-
-  .risce-problem-heading {
-
-    font-size: 22px;
-  }
-}
-.risce-click-text {
-
-  width: 100%;
-
-  padding: 10px;
-
-  background: #8BC34A;
-
-  color: #062d1f;
-
-  text-align: center;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  font-family: "Poppins", sans-serif;
-}
-/* FLEX */
-.risce-vineyard-flex-layout {
-
-  width: 100%;
-
-  display: flex;
-
-  gap: 30px;
-
-  align-items: flex-start;
-
-  margin-top: 30px;
-}
-
-/* LEFT */
-.risce-vineyard-image-wrapper {
-
-  position: relative;
-
-  flex: 1;
-
-  border-radius: 20px;
-
-  overflow: hidden;
-
-  background: white;
-}
-
-/* RIGHT */
-.risce-analysis-panel {
-
-  width: 420px;
-
-  min-height: 700px;
-
-  background: white;
-
-  border-radius: 24px;
-
-  padding: 24px;
-
-  box-shadow:
-    0 12px 35px rgba(0,0,0,0.12);
-
-  font-family: "Poppins", sans-serif;
-}
-
-/* HEADING */
-.risce-analysis-heading {
-
-  font-size: 28px;
-
-  font-weight: 700;
-
-  margin-bottom: 20px;
-
-  color: #123524;
-}
-
-/* IMAGE */
-.risce-analysis-image {
-
-  width: 100%;
-
-  height: 260px;
-
-  object-fit: cover;
-
-  border-radius: 18px;
-
-  margin-bottom: 20px;
-}
-
-/* HINT */
-.risce-click-hint {
-
-  background: #8BC34A;
-
-  color: #062d1f;
-
-  padding: 10px;
-
-  text-align: center;
-
-  font-size: 13px;
-
-  font-weight: 700;
-}
-
-/* RESULT */
-.risce-result-box {
-
-  margin-top: 25px;
-
-  background: #f4f7f2;
-
-  padding: 20px;
-
-  border-radius: 18px;
-}
-
-.risce-result-box h3 {
-
-  color: #123524;
-
-  margin-bottom: 12px;
-}
-
-.risce-result-box ul {
-
-  padding-left: 18px;
-
-  color: #123524;
-
-  line-height: 1.8;
-}
-
-/* LINK */
-.risce-farmer-link {
-
-  display: inline-block;
-
-  margin-top: 10px;
-
-  color: #0f5132;
-
-  font-weight: 700;
-
-  text-decoration: none;
-}
-
-/* RESPONSIVE */
 @media (max-width: 1100px) {
 
   .risce-vineyard-flex-layout {
@@ -512,232 +681,45 @@
     flex-direction: column;
   }
 
+  .risce-vineyard-image-wrapper,
+
   .risce-analysis-panel {
 
     width: 100%;
   }
 }
 
-
-/* ============================================
-   VINE CARE STORIES — vinecare.unique.css
-   Scoped with prefix: vcs-
-   Background: #ffffff
-   Font: Poppins, sans-serif
-   ============================================ */
-
-
-/* SECTION WRAPPER */
-.vcs-section {
-  font-family: 'Poppins', sans-serif;
-  background-color: #ffffff;
-  width: 100%;
-  padding: 72px 40px;
-  box-sizing: border-box;
-}
-
-/* HEADER BLOCK */
-.vcs-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 56px auto;
-}
-
-.vcs-eyebrow {
-  display: inline-block;
-  font-family: 'Poppins', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #4a7c59;
-  background-color: #edf5ef;
-  padding: 5px 16px;
-  border-radius: 20px;
-  margin-bottom: 14px;
-}
-
-.vcs-heading {
-  font-family: 'Poppins', sans-serif;
-  font-size: 38px;
-  font-weight: 800;
-  color: #1a2e1d;
-  margin: 0 0 14px 0;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-}
-
-.vcs-subheading {
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: #6b7e6e;
-  line-height: 1.7;
-  margin: 0 0 18px 0;
-}
-
-.vcs-source-link {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: #4a7c59;
-  text-decoration: none;
-  border: 1px solid #c4ddc9;
-  padding: 6px 14px;
-  border-radius: 20px;
-  transition: background 0.2s, color 0.2s;
-  display: inline-block;
-}
-
-.vcs-source-link:hover {
-  background-color: #4a7c59;
-  color: #ffffff;
-  border-color: #4a7c59;
-}
-
-/* GRID */
-.vcs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* CARD */
-.vcs-card {
-  background-color: #ffffff;
-  border: 1px solid #e4ede6;
-  border-radius: 16px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  box-shadow: 0 2px 16px rgba(74, 124, 89, 0.07);
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-  box-sizing: border-box;
-}
-
-.vcs-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 36px rgba(74, 124, 89, 0.14);
-  border-color: #4a7c59;
-}
-
-/* CARD TOP ROW */
-.vcs-card-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.vcs-icon {
-  font-size: 20px;
-  line-height: 1;
-}
-
-.vcs-tag {
-  font-family: 'Poppins', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #4a7c59;
-  background-color: #edf5ef;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-/* CARD TITLE */
-.vcs-card-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: #1a2e1d;
-  margin: 0;
-  line-height: 1.35;
-}
-
-/* CARD EXCERPT */
-.vcs-card-excerpt {
-  font-family: 'Poppins', sans-serif;
-  font-size: 13.5px;
-  font-weight: 400;
-  color: #5a6e5d;
-  line-height: 1.75;
-  margin: 0;
-  flex-grow: 1;
-}
-
-/* CARD FOOTER */
-.vcs-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 6px;
-  padding-top: 14px;
-  border-top: 1px solid #edf5ef;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.vcs-card-source {
-  font-family: 'Poppins', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  color: #9aad9c;
-  letter-spacing: 0.5px;
-}
-
-.vcs-read-btn {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: #4a7c59;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  letter-spacing: 0.3px;
-  transition: color 0.18s, letter-spacing 0.18s;
-}
-
-.vcs-read-btn:hover {
-  color: #1a2e1d;
-  letter-spacing: 0.8px;
-}
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
+
+  .risce-vineyard-flex-layout {
+
+    padding: 20px;
+  }
+
   .vcs-section {
-    padding: 48px 20px;
+
+    padding: 40px 20px;
   }
 
   .vcs-heading {
-    font-size: 28px;
+
+    font-size: 30px;
   }
 
-  .vcs-subheading {
-    font-size: 14px;
+  .risce-popup-box {
+
+    padding: 25px;
   }
 
-  .vcs-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  .risce-solution-button-container {
 
-  .vcs-card {
-    padding: 22px;
-  }
-}
-
-@media (max-width: 480px) {
-  .vcs-heading {
-    font-size: 24px;
+    flex-direction: column;
   }
 
   .vcs-card-footer {
+
     flex-direction: column;
+
     align-items: flex-start;
   }
 }
