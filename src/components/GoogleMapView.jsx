@@ -116,3 +116,7 @@ const GoogleMapView = () => {
 };
 
 export default GoogleMapView;
+
+
+
+// some changes are needed 
