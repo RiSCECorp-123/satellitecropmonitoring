@@ -5,6 +5,10 @@ import Dashboard from "./pages/Dashboard";
 import VineyardDetails from "./pages/VineyardDetails";
 import LanguageDropdown from "./components/LanguageDropdown";
 import EmptyLand from "./pages/EmptyLand";
+import DroughtFruitGuide from "./pages/DroughtFruitGuide";
+import DroughtFlowerGuide from "./pages/DroughtFlowerGuide";
+import DroughtCerealGuide from "./pages/DroughtCerealGuide";
+import DroughtHerbGuide from "./pages/DroughtHerbGuide";
 
 function App() {
 
@@ -38,6 +42,25 @@ function App() {
           path="/empty-land"
           element={<EmptyLand />}
         />
+         <Route
+  path="/fruit-guide"
+  element={<DroughtFruitGuide />}
+/>
+
+<Route
+  path="/flower-guide"
+  element={<DroughtFlowerGuide />}
+/>
+
+<Route
+  path="/cereal-guide"
+  element={<DroughtCerealGuide />}
+/>
+
+<Route
+  path="/herb-guide"
+  element={<DroughtHerbGuide />}
+/>
 
       </Routes>
 

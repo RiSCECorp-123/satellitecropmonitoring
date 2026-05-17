@@ -1,17 +1,18 @@
-// src/pages/EmptyLand.jsx
-
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
 import "../styles/emptyland.unique.css";
-import Applefruit from '../assets/Apple.jpg';
-import Corn from '../assets/Corn.jpg';
-import Lentils from '../assets/Lentils.jpg';
-import Pear from '../assets/Pear.jpg';
-import Soybean from '../assets/Soybean.jpg';
-import Sunflower from '../assets/Sunflower.jpg';
-import Rice from '../assets/Rice.jpg';
+
+import Apricot from "../assets/apricot.jpg";
+import Winegrapes from "../assets/winegrapes.jpg";
+import Yarrowflower from "../assets/yarrowflower.jpg";
+import Coneflower from "../assets/coneflower.jpg";
+import WinterRye from "../assets/winter_rye.jpg";
+import Wheat from "../assets/wheat.jpg";
+import Oregano from "../assets/Oregano.jpg";
+import Lavender from "../assets/lavender.jpg";
+import Rosemary from "../assets/rosemary.jpg";
 
 const EmptyLand = () => {
 
@@ -25,28 +26,37 @@ const EmptyLand = () => {
     {
       title: "Drought Resilient Fruit Trees",
 
+      route: "/fruit-guide",
+
       crops: [
 
         {
-          image: Applefruit,
-          cropName: "Apple"
+          image: Apricot,
+          cropName: "Apricot"
         },
 
         {
-          image: Pear,
-          cropName: "Pear"
+          image: Winegrapes,
+          cropName: "Wine Grapes"
         }
       ]
     },
 
     {
-      title: "Drought Resilient Horticulture",
+      title: "Drought Resilient Flowers",
+
+      route: "/flower-guide",
 
       crops: [
 
         {
-          image: Sunflower,
-          cropName: "Sunflower"
+          image: Coneflower,
+          cropName: "Coneflower"
+        },
+
+        {
+          image: Yarrowflower,
+          cropName: "Yarrowflower"
         }
       ]
     },
@@ -54,33 +64,42 @@ const EmptyLand = () => {
     {
       title: "Drought Resilient Cereals",
 
+      route: "/cereal-guide",
+
       crops: [
 
         {
-          image: Corn,
-          cropName: "Corn"
+          image: WinterRye,
+          cropName: "Winter Rye"
         },
 
         {
-          image: Rice,
-          cropName: "Rice"
+          image: Wheat,
+          cropName: "Wheat"
         }
       ]
     },
 
     {
-      title: "Drought Resilient Legumes",
+      title: "Drought Resilient Herbs",
+
+      route: "/herb-guide",
 
       crops: [
 
         {
-          image: Soybean,
-          cropName: "Soy"
+          image: Oregano,
+          cropName: "Oregano"
         },
 
         {
-          image: Lentils,
-          cropName: "Lentils"
+          image: Lavender,
+          cropName: "Lavender"
+        },
+
+        {
+          image: Rosemary,
+          cropName: "Rosemary"
         }
       ]
     }
@@ -174,12 +193,16 @@ const EmptyLand = () => {
                     key={cropIndex}
                     className="risce-suggestion-image-card"
                   >
-                      <h4 style={{textAlign:"center"}}>Suggested</h4>
+
+                    <h4 style={{ textAlign: "center" }}>
+                      Suggested
+                    </h4>
+
                     <img
                       src={crop.image}
                       alt={crop.cropName}
                       className="risce-suggestion-image"
-                      />
+                    />
 
                     <p className="risce-suggestion-image-title">
 
@@ -187,12 +210,25 @@ const EmptyLand = () => {
 
                     </p>
 
+                    <button
+                      className="risce-guide-button"
+                      onClick={() =>
+                        navigate(category.route)
+                      }
+                    >
+
+                      Instructions & Guide
+
+                    </button>
+
                   </div>
+
                 ))}
 
               </div>
 
             </div>
+
           ))}
 
         </div>
@@ -227,6 +263,7 @@ const EmptyLand = () => {
                 {item}
 
               </button>
+
             ))}
 
             {/* SUBMIT */}

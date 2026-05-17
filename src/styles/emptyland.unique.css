@@ -417,3 +417,42 @@
     font-size: 16px;
   }
 }
+.risce-guide-button {
+
+  width: 90%;
+
+  margin: 0 auto 15px auto;
+
+  display: block;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #cddc39
+    );
+
+  color: #062d1f;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.risce-guide-button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 18px rgba(255,224,130,0.35);
+}

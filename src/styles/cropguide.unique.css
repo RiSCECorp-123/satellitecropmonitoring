@@ -1,0 +1,134 @@
+.risce-guide-page {
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #062d1f,
+      #0f5132,
+      #124734
+    );
+
+  font-family: "Poppins", sans-serif;
+
+  color: white;
+}
+
+.risce-guide-heading {
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
+
+  text-align: center;
+}
+
+.risce-guide-description {
+
+  max-width: 950px;
+
+  margin: auto;
+
+  text-align: center;
+
+  line-height: 1.8;
+
+  font-size: 17px;
+
+  margin-bottom: 40px;
+
+  color: #f1f1f1;
+}
+
+.risce-guide-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 30px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+}
+
+.risce-guide-table th {
+
+  background: #cddc39;
+
+  color: #062d1f;
+
+  padding: 18px;
+
+  text-align: left;
+
+  font-size: 16px;
+}
+
+.risce-guide-table td {
+
+  background: rgba(255,255,255,0.08);
+
+  padding: 18px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
+
+  line-height: 1.7;
+}
+
+.risce-back-button {
+
+  padding: 14px 24px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #cddc39
+    );
+
+  color: #062d1f;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+
+  .risce-guide-page {
+
+    padding: 20px;
+  }
+
+  .risce-guide-heading {
+
+    font-size: 28px;
+  }
+
+  .risce-guide-table {
+
+    display: block;
+
+    overflow-x: auto;
+  }
+}
