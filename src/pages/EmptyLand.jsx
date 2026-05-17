@@ -10,7 +10,7 @@ import Yarrowflower from "../assets/yarrowflower.jpg";
 import Coneflower from "../assets/coneflower.jpg";
 import WinterRye from "../assets/winter_rye.jpg";
 import Wheat from "../assets/wheat.jpg";
-import Oregano from "../assets/Oregano.jpg";
+import Oregano from "../assets/oregano.jpg";
 import Lavender from "../assets/lavender.jpg";
 import Rosemary from "../assets/rosemary.jpg";
 
