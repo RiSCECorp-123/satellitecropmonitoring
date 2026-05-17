@@ -7,9 +7,6 @@ import "../styles/vineyard.unique.css";
 import VineyardImg from "../assets/Vineyard.jpg";
 import Healthy from "../assets/Vine.png";
 import Unhealthy from "../assets/unhealthy.png";
-
-
-
 const stories = [
   {
     id: 1,
@@ -172,6 +169,7 @@ const VineyardHoverLayer = () => {
   };
 
   return (
+    <>
 
     <div className="risce-vineyard-flex-layout">
 
@@ -331,7 +329,17 @@ const VineyardHoverLayer = () => {
             </div>
           )}
 
-           <section className="vcs-section">
+          
+
+        </div>
+      )}
+
+      
+
+
+    </div>
+
+    <section className="vcs-section">
       {/* HEADER */}
       <div className="vcs-header">
         <span className="vcs-eyebrow">From the Field</span>
@@ -368,11 +376,7 @@ const VineyardHoverLayer = () => {
         ))}
       </div>
     </section>
-
-        </div>
-      )}
-
-    </div>
+    </>
   );
 };
 
