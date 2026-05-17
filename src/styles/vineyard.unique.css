@@ -516,3 +516,228 @@
     width: 100%;
   }
 }
+
+
+/* ============================================
+   VINE CARE STORIES — vinecare.unique.css
+   Scoped with prefix: vcs-
+   Background: #ffffff
+   Font: Poppins, sans-serif
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* SECTION WRAPPER */
+.vcs-section {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 72px 40px;
+  box-sizing: border-box;
+}
+
+/* HEADER BLOCK */
+.vcs-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px auto;
+}
+
+.vcs-eyebrow {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #4a7c59;
+  background-color: #edf5ef;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.vcs-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  color: #1a2e1d;
+  margin: 0 0 14px 0;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.vcs-subheading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #6b7e6e;
+  line-height: 1.7;
+  margin: 0 0 18px 0;
+}
+
+.vcs-source-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #4a7c59;
+  text-decoration: none;
+  border: 1px solid #c4ddc9;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+.vcs-source-link:hover {
+  background-color: #4a7c59;
+  color: #ffffff;
+  border-color: #4a7c59;
+}
+
+/* GRID */
+.vcs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CARD */
+.vcs-card {
+  background-color: #ffffff;
+  border: 1px solid #e4ede6;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 2px 16px rgba(74, 124, 89, 0.07);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  box-sizing: border-box;
+}
+
+.vcs-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(74, 124, 89, 0.14);
+  border-color: #4a7c59;
+}
+
+/* CARD TOP ROW */
+.vcs-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vcs-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.vcs-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #4a7c59;
+  background-color: #edf5ef;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* CARD TITLE */
+.vcs-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a2e1d;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* CARD EXCERPT */
+.vcs-card-excerpt {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #5a6e5d;
+  line-height: 1.75;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* CARD FOOTER */
+.vcs-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid #edf5ef;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vcs-card-source {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #9aad9c;
+  letter-spacing: 0.5px;
+}
+
+.vcs-read-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a7c59;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.3px;
+  transition: color 0.18s, letter-spacing 0.18s;
+}
+
+.vcs-read-btn:hover {
+  color: #1a2e1d;
+  letter-spacing: 0.8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .vcs-section {
+    padding: 48px 20px;
+  }
+
+  .vcs-heading {
+    font-size: 28px;
+  }
+
+  .vcs-subheading {
+    font-size: 14px;
+  }
+
+  .vcs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .vcs-card {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vcs-heading {
+    font-size: 24px;
+  }
+
+  .vcs-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

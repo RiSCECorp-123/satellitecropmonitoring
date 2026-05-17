@@ -8,6 +8,47 @@ import VineyardImg from "../assets/Vineyard.jpg";
 import Healthy from "../assets/Vine.png";
 import Unhealthy from "../assets/unhealthy.png";
 
+
+
+const stories = [
+  {
+    id: 1,
+    tag: "Pruning & Growth",
+    title: "The Art of Knowing When to Cut",
+    excerpt:
+      "Experienced vine growers across Europe share one truth — the vine always tells you when it's ready. Seasonal pruning isn't just technique; it's a conversation between the grower and the plant, refined over generations of careful observation.",
+    source: "BBC | Vine Care Series",
+    icon: "✂️",
+  },
+  {
+    id: 2,
+    tag: "Soil Health",
+    title: "Feeding the Ground Beneath the Vine",
+    excerpt:
+      "Healthy grapes begin long before flowering. Growers are returning to regenerative soil practices — cover crops, reduced tillage, and organic compost — to rebuild the microbial life that feeds roots at their deepest level.",
+    source: "BBC | Vine Care Series",
+    icon: "🌱",
+  },
+  {
+    id: 3,
+    tag: "Water Management",
+    title: "Every Drop Counts in a Changing Climate",
+    excerpt:
+      "As summers grow drier and unpredictable, vineyard families are rethinking irrigation — using drip systems, monitoring soil moisture, and harvesting rainwater. The vine is resilient, but only if the farmer is patient and precise.",
+    source: "BBC | Vine Care Series",
+    icon: "💧",
+  },
+  {
+    id: 4,
+    tag: "Generational Knowledge",
+    title: "What Grandmothers Knew About Grapes",
+    excerpt:
+      "In many family-run vineyards, the oldest knowledge is proving to be the most valuable. Lunar planting calendars, handpicked harvests, and memory of which rows performed best in drought years — wisdom no algorithm can replace.",
+    source: "BBC | Vine Care Series",
+    icon: "🍇",
+  },
+];
+
 const VineyardHoverLayer = () => {
 
   /* HOVER STATUS */
@@ -264,9 +305,6 @@ const VineyardHoverLayer = () => {
                   Pest Attack ,  Grasshoppers or Weevils (Centainity-60%)
                 </li>
 
-                
-
-                
 
                
 
@@ -292,6 +330,44 @@ const VineyardHoverLayer = () => {
 
             </div>
           )}
+
+           <section className="vcs-section">
+      {/* HEADER */}
+      <div className="vcs-header">
+        <span className="vcs-eyebrow">From the Field</span>
+        <h2 className="vcs-heading">Vine Care Stories</h2>
+        <p className="vcs-subheading">
+          Real stories from growers, farmers, and families who tend the vine —
+          season after season, root to fruit.
+        </p>
+        <a
+          className="vcs-source-link"
+          href="https://www.bbc.com/news/articles/c9v3d2gn22jo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📰 Source: BBC News
+        </a>
+      </div>
+ 
+      {/* STORY CARDS GRID */}
+      <div className="vcs-grid">
+        {stories.map((story) => (
+          <div className="vcs-card" key={story.id}>
+            <div className="vcs-card-top">
+              <span className="vcs-icon">{story.icon}</span>
+              <span className="vcs-tag">{story.tag}</span>
+            </div>
+            <h3 className="vcs-card-title">{story.title}</h3>
+            <p className="vcs-card-excerpt">{story.excerpt}</p>
+            <div className="vcs-card-footer">
+              <span className="vcs-card-source">{story.source}</span>
+              <button className="vcs-read-btn">Read More →</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
 
         </div>
       )}
