@@ -1,4 +1,4 @@
-
+/* src/styles/emptyland.unique.css */
 
 .risce-empty-land-page {
 
@@ -111,17 +111,18 @@
   flex-direction: column;
 
   gap: 35px;
+
   padding-left: 3rem;
 }
 
-/* SUGGESTION BLOCK */
+/* GROUP */
 
 .risce-suggestion-group {
 
   width: 100%;
 }
 
-/* CATEGORY TITLE */
+/* TITLE */
 
 .risce-suggestion-title {
 
@@ -161,7 +162,11 @@
 
   overflow: hidden;
 
-  transition: 0.3s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    filter 0.35s ease,
+    background 0.35s ease;
 
   backdrop-filter: blur(8px);
 }
@@ -203,6 +208,21 @@
   color: white;
 }
 
+/* SUGGESTED TEXT */
+
+.risce-suggested-text {
+
+  text-align: center;
+
+  padding-top: 12px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #ffe082;
+}
+
 /* =========================================
    RIGHT COLUMN
 ========================================= */
@@ -214,7 +234,7 @@
   flex-direction: column;
 }
 
-/* PREFERENCE CONTAINER */
+/* CONTAINER */
 
 .risce-preference-container {
 
@@ -277,7 +297,7 @@
     0 8px 25px rgba(139,195,74,0.4);
 }
 
-/* SUBMIT BUTTON */
+/* SUBMIT */
 
 .risce-submit-button {
 
@@ -316,6 +336,84 @@
 
   box-shadow:
     0 10px 24px rgba(139,195,74,0.35);
+}
+
+/* GUIDE BUTTON */
+
+.risce-guide-button {
+
+  width: 90%;
+
+  margin: 0 auto 15px auto;
+
+  display: block;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffe082,
+      #cddc39
+    );
+
+  color: #062d1f;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.risce-guide-button:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 18px rgba(255,224,130,0.35);
+}
+
+/* BLUR */
+
+.risce-card-blur {
+
+  opacity: 0.22;
+
+  filter: blur(2px);
+
+  transform: scale(0.96);
+}
+
+/* ERROR */
+
+.risce-error-box {
+
+  width: 100%;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 82, 82, 0.18);
+
+  border:
+    1px solid rgba(255, 82, 82, 0.4);
+
+  color: #ffdddd;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  text-align: center;
 }
 
 /* =========================================
@@ -416,94 +514,4 @@
 
     font-size: 16px;
   }
-}
-.risce-guide-button {
-
-  width: 90%;
-
-  margin: 0 auto 15px auto;
-
-  display: block;
-
-  padding: 12px;
-
-  border: none;
-
-  border-radius: 12px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ffe082,
-      #cddc39
-    );
-
-  color: #062d1f;
-
-  font-size: 14px;
-
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: 0.3s ease;
-}
-
-.risce-guide-button:hover {
-
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 8px 18px rgba(255,224,130,0.35);
-}
-
-/* MATCH / BLUR EFFECT */
-
-.risce-card-blur {
-
-  opacity: 0.25;
-
-  filter: blur(2px);
-
-  transform: scale(0.96);
-
-  pointer-events: none;
-}
-
-/* SUGGESTED TEXT */
-
-.risce-suggested-text {
-
-  text-align: center;
-
-  padding-top: 12px;
-
-  font-size: 15px;
-
-  font-weight: 600;
-
-  color: #ffe082;
-}
-
-/* ERROR BOX */
-
-.risce-error-box {
-
-  width: 100%;
-
-  padding: 16px;
-
-  border-radius: 14px;
-
-  background: rgba(255, 82, 82, 0.18);
-
-  border: 1px solid rgba(255, 82, 82, 0.4);
-
-  color: #ffdddd;
-
-  font-size: 15px;
-
-  font-weight: 600;
-
-  text-align: center;
 }

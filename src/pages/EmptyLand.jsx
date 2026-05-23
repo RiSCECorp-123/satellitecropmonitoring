@@ -166,6 +166,7 @@ const EmptyLand = () => {
     "Local Market"
   ];
 
+  /* SELECT PREFERENCE */
   const handlePreferenceClick = (item) => {
 
     setShowError(false);
@@ -188,6 +189,7 @@ const EmptyLand = () => {
     }
   };
 
+  /* SUBMIT */
   const handleSubmit = () => {
 
     if (selectedPreferences.length === 0) {
@@ -200,13 +202,21 @@ const EmptyLand = () => {
     navigate("/under-construction");
   };
 
+  /* FILTER LOGIC */
   const isCropMatched = (cropTags) => {
 
     if (selectedPreferences.length === 0) {
+
       return true;
     }
 
-    return selectedPreferences.some(
+    /*
+      ALL SELECTED TAGS
+      MUST MATCH
+    */
+
+    return selectedPreferences.every(
+
       (pref) => cropTags.includes(pref)
     );
   };
@@ -215,7 +225,7 @@ const EmptyLand = () => {
 
     <div className="risce-empty-land-page">
 
-      {/* TOP */}
+      {/* TOP SECTION */}
       <div className="risce-empty-land-top-section">
 
         <h1 className="risce-empty-land-heading">
@@ -238,11 +248,13 @@ const EmptyLand = () => {
       {/* MAIN GRID */}
       <div className="risce-empty-land-main-grid">
 
-        {/* LEFT */}
+        {/* LEFT SECTION */}
         <div className="risce-empty-land-left-section">
 
           <h2 className="risce-column-heading">
+
             Suggested Crops
+
           </h2>
 
           {cropCategories.map((category, index) => (
@@ -252,12 +264,14 @@ const EmptyLand = () => {
               className="risce-suggestion-group"
             >
 
+              {/* CATEGORY TITLE */}
               <h3 className="risce-suggestion-title">
 
                 {category.title}
 
               </h3>
 
+              {/* CROPS */}
               <div className="risce-suggestion-image-row">
 
                 {category.crops.map((crop, cropIndex) => {
@@ -272,27 +286,36 @@ const EmptyLand = () => {
 
                       className={
                         matched
+
                           ? "risce-suggestion-image-card"
+
                           : "risce-suggestion-image-card risce-card-blur"
                       }
                     >
 
                       <h4 className="risce-suggested-text">
+
                         Suggested
+
                       </h4>
 
+                      {/* IMAGE */}
                       <img
                         src={crop.image}
+
                         alt={crop.cropName}
+
                         className="risce-suggestion-image"
                       />
 
+                      {/* TITLE */}
                       <p className="risce-suggestion-image-title">
 
                         {crop.cropName}
 
                       </p>
 
+                      {/* GUIDE BUTTON */}
                       <button
                         className="risce-guide-button"
 
@@ -316,11 +339,13 @@ const EmptyLand = () => {
 
         </div>
 
-        {/* RIGHT */}
+        {/* RIGHT SECTION */}
         <div className="risce-empty-land-right-column">
 
           <h2 className="risce-column-heading">
+
             Mark Your Preferences
+
           </h2>
 
           <div className="risce-preference-container">
@@ -331,6 +356,7 @@ const EmptyLand = () => {
                 key={index}
 
                 className={
+
                   selectedPreferences.includes(item)
 
                     ? "risce-preference-button risce-preference-button-active"
@@ -348,6 +374,7 @@ const EmptyLand = () => {
               </button>
             ))}
 
+            {/* ERROR */}
             {showError && (
 
               <div className="risce-error-box">
@@ -358,6 +385,7 @@ const EmptyLand = () => {
               </div>
             )}
 
+            {/* SUBMIT */}
             <button
               className="risce-submit-button"
 
