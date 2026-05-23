@@ -1,3 +1,5 @@
+// src/pages/EmptyLand.jsx
+
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
@@ -21,6 +23,9 @@ const EmptyLand = () => {
   const [selectedPreferences, setSelectedPreferences] =
     useState([]);
 
+  const [showError, setShowError] =
+    useState(false);
+
   const cropCategories = [
 
     {
@@ -32,12 +37,22 @@ const EmptyLand = () => {
 
         {
           image: Apricot,
-          cropName: "Apricot"
+          cropName: "Apricot",
+
+          tags: [
+            "Low Maintenance",
+            "High Market Value"
+          ]
         },
 
         {
           image: Winegrapes,
-          cropName: "Wine Grapes"
+          cropName: "Wine Grapes",
+
+          tags: [
+            "High Market Value",
+            "Local Market"
+          ]
         }
       ]
     },
@@ -51,12 +66,22 @@ const EmptyLand = () => {
 
         {
           image: Coneflower,
-          cropName: "Coneflower"
+          cropName: "Coneflower",
+
+          tags: [
+            "Low Maintenance",
+            "Short Harvest Cycle"
+          ]
         },
 
         {
           image: Yarrowflower,
-          cropName: "Yarrowflower"
+          cropName: "Yarrow Flower",
+
+          tags: [
+            "Low Maintenance",
+            "Local Market"
+          ]
         }
       ]
     },
@@ -70,12 +95,22 @@ const EmptyLand = () => {
 
         {
           image: WinterRye,
-          cropName: "Winter Rye"
+          cropName: "Winter Rye",
+
+          tags: [
+            "Short Harvest Cycle",
+            "Low Maintenance"
+          ]
         },
 
         {
           image: Wheat,
-          cropName: "Wheat"
+          cropName: "Wheat",
+
+          tags: [
+            "Local Market",
+            "High Market Value"
+          ]
         }
       ]
     },
@@ -89,17 +124,32 @@ const EmptyLand = () => {
 
         {
           image: Oregano,
-          cropName: "Oregano"
+          cropName: "Oregano",
+
+          tags: [
+            "Low Maintenance",
+            "Local Market"
+          ]
         },
 
         {
           image: Lavender,
-          cropName: "Lavender"
+          cropName: "Lavender",
+
+          tags: [
+            "High Market Value",
+            "Low Maintenance"
+          ]
         },
 
         {
           image: Rosemary,
-          cropName: "Rosemary"
+          cropName: "Rosemary",
+
+          tags: [
+            "Short Harvest Cycle",
+            "Local Market"
+          ]
         }
       ]
     }
@@ -118,6 +168,8 @@ const EmptyLand = () => {
 
   const handlePreferenceClick = (item) => {
 
+    setShowError(false);
+
     if (selectedPreferences.includes(item)) {
 
       setSelectedPreferences(
@@ -134,6 +186,29 @@ const EmptyLand = () => {
         item
       ]);
     }
+  };
+
+  const handleSubmit = () => {
+
+    if (selectedPreferences.length === 0) {
+
+      setShowError(true);
+
+      return;
+    }
+
+    navigate("/under-construction");
+  };
+
+  const isCropMatched = (cropTags) => {
+
+    if (selectedPreferences.length === 0) {
+      return true;
+    }
+
+    return selectedPreferences.some(
+      (pref) => cropTags.includes(pref)
+    );
   };
 
   return (
@@ -163,7 +238,7 @@ const EmptyLand = () => {
       {/* MAIN GRID */}
       <div className="risce-empty-land-main-grid">
 
-        {/* LEFT SECTION */}
+        {/* LEFT */}
         <div className="risce-empty-land-left-section">
 
           <h2 className="risce-column-heading">
@@ -177,63 +252,71 @@ const EmptyLand = () => {
               className="risce-suggestion-group"
             >
 
-              {/* TITLE */}
               <h3 className="risce-suggestion-title">
 
                 {category.title}
 
               </h3>
 
-              {/* IMAGE ROW */}
               <div className="risce-suggestion-image-row">
 
-                {category.crops.map((crop, cropIndex) => (
+                {category.crops.map((crop, cropIndex) => {
 
-                  <div
-                    key={cropIndex}
-                    className="risce-suggestion-image-card"
-                  >
+                  const matched =
+                    isCropMatched(crop.tags);
 
-                    <h4 style={{ textAlign: "center" }}>
-                      Suggested
-                    </h4>
+                  return (
 
-                    <img
-                      src={crop.image}
-                      alt={crop.cropName}
-                      className="risce-suggestion-image"
-                    />
+                    <div
+                      key={cropIndex}
 
-                    <p className="risce-suggestion-image-title">
-
-                      {crop.cropName}
-
-                    </p>
-
-                    <button
-                      className="risce-guide-button"
-                      onClick={() =>
-                        navigate(category.route)
+                      className={
+                        matched
+                          ? "risce-suggestion-image-card"
+                          : "risce-suggestion-image-card risce-card-blur"
                       }
                     >
 
-                      Instructions & Guide
+                      <h4 className="risce-suggested-text">
+                        Suggested
+                      </h4>
 
-                    </button>
+                      <img
+                        src={crop.image}
+                        alt={crop.cropName}
+                        className="risce-suggestion-image"
+                      />
 
-                  </div>
+                      <p className="risce-suggestion-image-title">
 
-                ))}
+                        {crop.cropName}
+
+                      </p>
+
+                      <button
+                        className="risce-guide-button"
+
+                        onClick={() =>
+                          navigate(category.route)
+                        }
+                      >
+
+                        Instructions & Guide
+
+                      </button>
+
+                    </div>
+                  );
+                })}
 
               </div>
 
             </div>
-
           ))}
 
         </div>
 
-        {/* RIGHT SECTION */}
+        {/* RIGHT */}
         <div className="risce-empty-land-right-column">
 
           <h2 className="risce-column-heading">
@@ -263,16 +346,22 @@ const EmptyLand = () => {
                 {item}
 
               </button>
-
             ))}
 
-            {/* SUBMIT */}
+            {showError && (
+
+              <div className="risce-error-box">
+
+                Please select at least
+                1 preference.
+
+              </div>
+            )}
+
             <button
               className="risce-submit-button"
 
-              onClick={() => {
-                navigate("/under-construction");
-              }}
+              onClick={handleSubmit}
             >
 
               Submit

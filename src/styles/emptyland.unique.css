@@ -456,3 +456,54 @@
   box-shadow:
     0 8px 18px rgba(255,224,130,0.35);
 }
+
+/* MATCH / BLUR EFFECT */
+
+.risce-card-blur {
+
+  opacity: 0.25;
+
+  filter: blur(2px);
+
+  transform: scale(0.96);
+
+  pointer-events: none;
+}
+
+/* SUGGESTED TEXT */
+
+.risce-suggested-text {
+
+  text-align: center;
+
+  padding-top: 12px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #ffe082;
+}
+
+/* ERROR BOX */
+
+.risce-error-box {
+
+  width: 100%;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 82, 82, 0.18);
+
+  border: 1px solid rgba(255, 82, 82, 0.4);
+
+  color: #ffdddd;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  text-align: center;
+}
