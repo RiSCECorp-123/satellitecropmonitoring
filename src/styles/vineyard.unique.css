@@ -723,3 +723,71 @@
     align-items: flex-start;
   }
 }
+/* ADD THIS CSS ONLY */
+
+.risce-plant-preview-card {
+
+  position: absolute;
+
+  width: 220px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  z-index: 10;
+
+  cursor: pointer;
+
+  animation: risceFadeIn 0.25s ease;
+
+  transform: translate(-50%, -50%);
+}
+
+/* CLOSE BUTTON */
+
+.risce-unlock-button {
+
+  position: absolute;
+
+  top: 10px;
+
+  right: 10px;
+
+  width: 32px;
+
+  height: 32px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.7);
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  transition: 0.3s ease;
+}
+
+.risce-unlock-button:hover {
+
+  transform: rotate(90deg);
+
+  background: #ff5252;
+}

@@ -52,41 +52,63 @@ const stories = [
 
 const VineyardHoverLayer = () => {
 
-  /* HOVER STATUS */
   const [hoveredPlant, setHoveredPlant] =
     useState(null);
 
-  /* CARD POSITION */
   const [cardPosition, setCardPosition] =
     useState({
       x: 0,
-      y: 0
+      y: 0,
     });
 
-  /* LOCK CARD */
   const [lockedCard, setLockedCard] =
     useState(false);
 
-  /* RIGHT ANALYSIS PANEL */
   const [selectedProblemPlant, setSelectedProblemPlant] =
     useState(false);
 
-  /* USER IMAGE */
   const [uploadedImage, setUploadedImage] =
     useState(null);
 
-  /* SUGGESTIONS */
   const [showSuggestions, setShowSuggestions] =
     useState(false);
 
-  /* POPUPS */
   const [showChemicalPopup, setShowChemicalPopup] =
     useState(false);
 
   const [showNaturalPopup, setShowNaturalPopup] =
     useState(false);
 
-  /* HEALTH DETECTION */
+  /* =========================
+     FIELD DETECTION
+  ========================= */
+
+  const isInsideField = (
+    horizontalRatio,
+    verticalRatio
+  ) => {
+
+    /*
+      Ignore black empty regions.
+      Only hover inside vineyard areas.
+    */
+
+    if (
+      horizontalRatio < 0.08 ||
+      horizontalRatio > 0.94 ||
+      verticalRatio < 0.08 ||
+      verticalRatio > 0.92
+    ) {
+      return false;
+    }
+
+    return true;
+  };
+
+  /* =========================
+     HEALTH DETECTION
+  ========================= */
+
   const detectPlantHealth = (
     mouseX,
     mouseY,
@@ -100,6 +122,16 @@ const VineyardHoverLayer = () => {
     const verticalRatio =
       mouseY / height;
 
+    /* BLACK EMPTY SPACE */
+    if (
+      !isInsideField(
+        horizontalRatio,
+        verticalRatio
+      )
+    ) {
+      return null;
+    }
+
     /* HEALTHY REGION */
     if (
       horizontalRatio < 0.45 &&
@@ -108,14 +140,15 @@ const VineyardHoverLayer = () => {
       return 1;
     }
 
-    /* UNHEALTHY REGION */
+    /* DISEASED REGION */
     return 0;
   };
 
-  /* HOVER IMAGE */
-  const handleMouseMove = (e) => {
+  /* =========================
+     HOVER
+  ========================= */
 
-    if (lockedCard) return;
+  const handleMouseMove = (e) => {
 
     const rect =
       e.currentTarget.getBoundingClientRect();
@@ -126,6 +159,15 @@ const VineyardHoverLayer = () => {
     const mouseY =
       e.clientY - rect.top;
 
+    /* LOCK POSITION */
+    if (!lockedCard) {
+
+      setCardPosition({
+        x: mouseX,
+        y: mouseY,
+      });
+    }
+
     const result =
       detectPlantHealth(
         mouseX,
@@ -134,27 +176,60 @@ const VineyardHoverLayer = () => {
         rect.height
       );
 
+    /* OUTSIDE FIELD */
+    if (result === null) {
+
+      if (!lockedCard) {
+
+        setHoveredPlant(null);
+      }
+
+      return;
+    }
+
+    /* KEEP DISEASE CARD LOCKED */
+    if (lockedCard) {
+      return;
+    }
+
     setHoveredPlant(result);
 
-    setCardPosition({
-      x: mouseX,
-      y: mouseY
-    });
-
+    /* LOCK ONLY FOR DISEASE */
     if (result === 0) {
+
       setLockedCard(true);
     }
   };
 
-  /* RESET */
+  /* =========================
+     RESET
+  ========================= */
+
   const resetHover = () => {
 
-    setHoveredPlant(null);
+    if (!lockedCard) {
 
-    setLockedCard(false);
+      setHoveredPlant(null);
+    }
   };
 
-  /* CLICK CARD */
+  /* =========================
+     REMOVE LOCK
+  ========================= */
+
+  const unlockHover = (e) => {
+
+    e.stopPropagation();
+
+    setLockedCard(false);
+
+    setHoveredPlant(null);
+  };
+
+  /* =========================
+     CLICK CARD
+  ========================= */
+
   const handleCardClick = () => {
 
     if (hoveredPlant === 0) {
@@ -163,7 +238,10 @@ const VineyardHoverLayer = () => {
     }
   };
 
-  /* IMAGE UPLOAD */
+  /* =========================
+     IMAGE UPLOAD
+  ========================= */
+
   const handleImageUpload = (e) => {
 
     const file = e.target.files[0];
@@ -182,7 +260,7 @@ const VineyardHoverLayer = () => {
 
       <div className="risce-vineyard-flex-layout">
 
-        {/* LEFT SATELLITE */}
+        {/* LEFT */}
         <div
           className="risce-vineyard-image-wrapper"
           onMouseLeave={resetHover}
@@ -203,11 +281,24 @@ const VineyardHoverLayer = () => {
 
               style={{
                 top: cardPosition.y + 20,
-                left: cardPosition.x + 20
+                left: cardPosition.x + 20,
               }}
 
               onClick={handleCardClick}
             >
+
+              {/* CLOSE LOCK */}
+              {lockedCard && (
+
+                <button
+                  className="risce-unlock-button"
+                  onClick={unlockHover}
+                >
+
+                  ✕
+
+                </button>
+              )}
 
               <img
                 src={
@@ -266,7 +357,6 @@ const VineyardHoverLayer = () => {
               className="risce-analysis-image"
             />
 
-            {/* UPLOAD */}
             <label className="risce-upload-button">
 
               Upload Photos of Plant
@@ -280,7 +370,6 @@ const VineyardHoverLayer = () => {
 
             </label>
 
-            {/* CHECK */}
             <button
               className="risce-check-button"
 
@@ -293,7 +382,6 @@ const VineyardHoverLayer = () => {
 
             </button>
 
-            {/* RESULTS */}
             {showSuggestions && (
 
               <div className="risce-result-box">
@@ -305,13 +393,13 @@ const VineyardHoverLayer = () => {
                 <ul>
 
                   <li>
-                    Pest Attack, Grasshoppers or Weevils
+                    Pest Attack,
+                    Grasshoppers or Weevils
                     (Certainty - 60%)
                   </li>
 
                 </ul>
 
-                {/* SUGGESTIONS */}
                 <h3 className="risce-suggestion-heading">
                   Suggestions
                 </h3>
@@ -350,11 +438,8 @@ const VineyardHoverLayer = () => {
 
                 <a
                   href="https://www.fao.org"
-
                   target="_blank"
-
                   rel="noreferrer"
-
                   className="risce-farmer-link"
                 >
 
@@ -409,8 +494,7 @@ const VineyardHoverLayer = () => {
 
               <li>
                 <strong>Ink Home Protect 171</strong> :
-                Water-based pyrethrin spray for
-                crop protection.
+                Water-based pyrethrin spray.
               </li>
 
             </ul>
@@ -446,7 +530,7 @@ const VineyardHoverLayer = () => {
             <ul>
 
               <li>
-                Cut and remove affected plant areas.
+                Cut and remove affected areas.
               </li>
 
               <li>
@@ -454,7 +538,7 @@ const VineyardHoverLayer = () => {
               </li>
 
               <li>
-                Maintain proper airflow between plants.
+                Maintain airflow between plants.
               </li>
 
               <li>
@@ -468,7 +552,7 @@ const VineyardHoverLayer = () => {
         </div>
       )}
 
-      {/* STORIES SECTION */}
+      {/* STORIES */}
       <section className="vcs-section">
 
         <div className="vcs-header">
@@ -535,7 +619,6 @@ const VineyardHoverLayer = () => {
               </div>
 
             </div>
-
           ))}
 
         </div>
