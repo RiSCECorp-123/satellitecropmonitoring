@@ -1,58 +1,101 @@
-// src/components/VineyardHoverLayer.jsx
+  // src/components/VineyardHoverLayer.jsx
 
-import { useState } from "react";
+  import { useState } from "react";
 
-import "../styles/vineyard.unique.css";
+  import "../styles/vineyard.unique.css";
 
-import VineyardImg from "../assets/Vineyard.jpg";
-import Healthy from "../assets/Vine.png";
-import Unhealthy from "../assets/unhealthy.png";
+  import VineyardImg from "../assets/V.png";
+  // import Healthy from "../assets/Vine.png";
+  import Unhealthy from "../assets/unhealthy.png";
 
-const stories = [
-  {
-    id: 1,
-    tag: "Pruning & Growth",
-    title: "The Art of Knowing When to Cut",
-    excerpt:
-      "Experienced vine growers across Europe share one truth — the vine always tells you when it's ready.",
-    source: "BBC | Vine Care Series",
-    icon: "✂️",
-  },
+ const affectedPlants = [
+  { id: 1, x: "34%", y: "8%" },
+  { id: 2, x: "37%", y: "9%" },
+  { id: 3, x: "40%", y: "11%" },
 
-  {
-    id: 2,
-    tag: "Soil Health",
-    title: "Feeding the Ground Beneath the Vine",
-    excerpt:
-      "Healthy grapes begin long before flowering. Growers are returning to regenerative soil practices.",
-    source: "BBC | Vine Care Series",
-    icon: "🌱",
-  },
+  { id: 4, x: "64%", y: "6%" },
+  { id: 5, x: "65%", y: "8%" },
+  { id: 6, x: "66%", y: "10%" },
 
-  {
-    id: 3,
-    tag: "Water Management",
-    title: "Every Drop Counts in a Changing Climate",
-    excerpt:
-      "As summers grow drier and unpredictable, vineyard families are rethinking irrigation systems.",
-    source: "BBC | Vine Care Series",
-    icon: "💧",
-  },
+  { id: 7, x: "20%", y: "21%" },
+  { id: 8, x: "38%", y: "21%" },
 
-  {
-    id: 4,
-    tag: "Generational Knowledge",
-    title: "What Grandmothers Knew About Grapes",
-    excerpt:
-      "Traditional vineyard knowledge still guides modern farming across Europe.",
-    source: "BBC | Vine Care Series",
-    icon: "🍇",
-  },
+  { id: 9, x: "40%", y: "30%" },
+  { id: 10, x: "43%", y: "33%" },
+
+  { id: 11, x: "60%", y: "29%" },
+  { id: 12, x: "66%", y: "32%" },
+
+  { id: 13, x: "6%", y: "40%" },
+  { id: 14, x: "5%", y: "44%" },
+  { id: 15, x: "4%", y: "48%" },
+
+  { id: 16, x: "42%", y: "40%" },
+  { id: 17, x: "43%", y: "43%" },
+
+  { id: 18, x: "49%", y: "39%" },
+
+  { id: 19, x: "52%", y: "52%" },
+
+  { id: 20, x: "12%", y: "63%" },
+  { id: 21, x: "14%", y: "65%" },
+  { id: 22, x: "16%", y: "67%" },
+
+  { id: 23, x: "18%", y: "78%" },
+  { id: 24, x: "28%", y: "79%" },
+
+  { id: 25, x: "59%", y: "90%" },
+  { id: 26, x: "62%", y: "89%" },
+
+  { id: 27, x: "28%", y: "94%" },
+  { id: 28, x: "40%", y: "96%" }
 ];
 
-const VineyardHoverLayer = () => {
+  const stories = [
+    {
+      id: 1,
+      tag: "Pruning & Growth",
+      title: "The Art of Knowing When to Cut",
+      excerpt:
+        "Experienced vine growers across Europe share one truth — the vine always tells you when it's ready.",
+      source: "BBC | Vine Care Series",
+      icon: "✂️",
+    },
 
-  const [hoveredPlant, setHoveredPlant] =
+    {
+      id: 2,
+      tag: "Soil Health",
+      title: "Feeding the Ground Beneath the Vine",
+      excerpt:
+        "Healthy grapes begin long before flowering. Growers are returning to regenerative soil practices.",
+      source: "BBC | Vine Care Series",
+      icon: "🌱",
+    },
+
+    {
+      id: 3,
+      tag: "Water Management",
+      title: "Every Drop Counts in a Changing Climate",
+      excerpt:
+        "As summers grow drier and unpredictable, vineyard families are rethinking irrigation systems.",
+      source: "BBC | Vine Care Series",
+      icon: "💧",
+    },
+
+    {
+      id: 4,
+      tag: "Generational Knowledge",
+      title: "What Grandmothers Knew About Grapes",
+      excerpt:
+        "Traditional vineyard knowledge still guides modern farming across Europe.",
+      source: "BBC | Vine Care Series",
+      icon: "🍇",
+    },
+  ];
+
+  const VineyardHoverLayer = () => {
+
+  const [selectedDot, setSelectedDot] =
     useState(null);
 
   const [cardPosition, setCardPosition] =
@@ -61,270 +104,266 @@ const VineyardHoverLayer = () => {
       y: 0,
     });
 
-  const [lockedCard, setLockedCard] =
-    useState(false);
+    const [selectedProblemPlant, setSelectedProblemPlant] =
+      useState(false);
 
-  const [selectedProblemPlant, setSelectedProblemPlant] =
-    useState(false);
+    const [uploadedImage, setUploadedImage] =
+      useState(null);
 
-  const [uploadedImage, setUploadedImage] =
-    useState(null);
+    const [showSuggestions, setShowSuggestions] =
+      useState(false);
 
-  const [showSuggestions, setShowSuggestions] =
-    useState(false);
+    const [showChemicalPopup, setShowChemicalPopup] =
+      useState(false);
 
-  const [showChemicalPopup, setShowChemicalPopup] =
-    useState(false);
+    const [showNaturalPopup, setShowNaturalPopup] =
+      useState(false);
 
-  const [showNaturalPopup, setShowNaturalPopup] =
-    useState(false);
+  
+  
 
-  /* =========================
-     FIELD DETECTION
-  ========================= */
+    /* =========================
+      HEALTH DETECTION
+    ========================= */
 
-  const isInsideField = (
-    horizontalRatio,
-    verticalRatio
-  ) => {
+  
 
-    /*
-      Ignore black empty regions.
-      Only hover inside vineyard areas.
-    */
+    /* =========================
+      HOVER
+    ========================= */
 
-    if (
-      horizontalRatio < 0.08 ||
-      horizontalRatio > 0.94 ||
-      verticalRatio < 0.08 ||
-      verticalRatio > 0.92
-    ) {
-      return false;
-    }
+    
 
-    return true;
-  };
+    
 
-  /* =========================
-     HEALTH DETECTION
-  ========================= */
+  
 
-  const detectPlantHealth = (
-    mouseX,
-    mouseY,
-    width,
-    height
-  ) => {
 
-    const horizontalRatio =
-      mouseX / width;
+  
 
-    const verticalRatio =
-      mouseY / height;
+    const handleImageUpload = (e) => {
 
-    /* BLACK EMPTY SPACE */
-    if (
-      !isInsideField(
-        horizontalRatio,
-        verticalRatio
-      )
-    ) {
-      return null;
-    }
+      const file = e.target.files[0];
 
-    /* HEALTHY REGION */
-    if (
-      horizontalRatio < 0.45 &&
-      verticalRatio < 0.55
-    ) {
-      return 1;
-    }
+      if (file) {
 
-    /* DISEASED REGION */
-    return 0;
-  };
+        const imageUrl =
+          URL.createObjectURL(file);
 
-  /* =========================
-     HOVER
-  ========================= */
-
-  const handleMouseMove = (e) => {
-
-    const rect =
-      e.currentTarget.getBoundingClientRect();
-
-    const mouseX =
-      e.clientX - rect.left;
-
-    const mouseY =
-      e.clientY - rect.top;
-
-    /* LOCK POSITION */
-    if (!lockedCard) {
-
-      setCardPosition({
-        x: mouseX,
-        y: mouseY,
-      });
-    }
-
-    const result =
-      detectPlantHealth(
-        mouseX,
-        mouseY,
-        rect.width,
-        rect.height
-      );
-
-    /* OUTSIDE FIELD */
-    if (result === null) {
-
-      if (!lockedCard) {
-
-        setHoveredPlant(null);
+        setUploadedImage(imageUrl);
       }
+    };
 
-      return;
-    }
+    return (
+      <>
 
-    /* KEEP DISEASE CARD LOCKED */
-    if (lockedCard) {
-      return;
-    }
+        <div className="risce-vineyard-flex-layout">
 
-    setHoveredPlant(result);
+          {/* LEFT */}
+        <div className="risce-vineyard-image-wrapper">
 
-    /* LOCK ONLY FOR DISEASE */
-    if (result === 0) {
+            <img
+    src={VineyardImg}
+    alt="satellite"
+    className="risce-vineyard-main-image"
+  />
+  {affectedPlants.map((dot) => (
 
-      setLockedCard(true);
-    }
-  };
+  <div
+    key={dot.id}
+    className="risce-click-hotspot"
 
-  /* =========================
-     RESET
-  ========================= */
+    style={{
+      left: dot.x,
+      top: dot.y,
+    }}
 
-  const resetHover = () => {
+    onClick={() => {
 
-    if (!lockedCard) {
+      setSelectedProblemPlant(false);
 
-      setHoveredPlant(null);
-    }
-  };
+     setSelectedProblemPlant(false);
 
-  /* =========================
-     REMOVE LOCK
-  ========================= */
+setShowSuggestions(false);
 
-  const unlockHover = (e) => {
+setSelectedDot(dot);
 
-    e.stopPropagation();
+setCardPosition({
+  x: dot.x,
+  y: dot.y,
+});
+    }}
+  />
 
-    setLockedCard(false);
+))}
 
-    setHoveredPlant(null);
-  };
+            {selectedDot && (
 
-  /* =========================
-     CLICK CARD
-  ========================= */
+    <div
+      className="risce-plant-preview-card"
 
-  const handleCardClick = () => {
+      style={{
+        left: cardPosition.x,
+        top: cardPosition.y,
+      }}
 
-    if (hoveredPlant === 0) {
+      onClick={() => {
+        setSelectedProblemPlant(true);
+      }}
+    >
 
-      setSelectedProblemPlant(true);
-    }
-  };
+      <button
+        className="risce-unlock-button"
 
-  /* =========================
-     IMAGE UPLOAD
-  ========================= */
+        onClick={(e) => {
 
-  const handleImageUpload = (e) => {
+  e.stopPropagation();
 
-    const file = e.target.files[0];
+  setSelectedDot(null);
 
-    if (file) {
+  setSelectedProblemPlant(false);
 
-      const imageUrl =
-        URL.createObjectURL(file);
+  setShowSuggestions(false);
 
-      setUploadedImage(imageUrl);
-    }
-  };
+  setShowChemicalPopup(false);
 
-  return (
-    <>
+  setShowNaturalPopup(false);
+}}
+      >
+        ✕
+      </button>
 
-      <div className="risce-vineyard-flex-layout">
+      <img
+        src={Unhealthy}
+        alt="plant"
+        className="risce-plant-preview-image"
+      />
 
-        {/* LEFT */}
-        <div
-          className="risce-vineyard-image-wrapper"
-          onMouseLeave={resetHover}
-        >
+      <p>Diseased Vineyard</p>
 
-          <img
-            src={VineyardImg}
-            alt="satellite"
-            className="risce-vineyard-main-image"
-            onMouseMove={handleMouseMove}
-          />
+      <div className="risce-click-hint">
 
-          {/* FLOATING CARD */}
-          {hoveredPlant !== null && (
+        Click To Inspect
 
-            <div
-              className="risce-plant-preview-card"
+      </div>
 
-              style={{
-                top: cardPosition.y + 20,
-                left: cardPosition.x + 20,
-              }}
+    </div>
 
-              onClick={handleCardClick}
-            >
+  )}
+          </div>
 
-              {/* CLOSE LOCK */}
-              {lockedCard && (
+          {/* RIGHT PANEL */}
+          {selectedProblemPlant && (
 
-                <button
-                  className="risce-unlock-button"
-                  onClick={unlockHover}
-                >
+            <div className="risce-analysis-panel">
 
-                  ✕
+              <h2 className="risce-analysis-heading">
 
-                </button>
-              )}
+                Vineyard Disease Analysis
+
+              </h2>
 
               <img
                 src={
-                  hoveredPlant === 1
-                    ? Healthy
+                  uploadedImage
+                    ? uploadedImage
                     : Unhealthy
                 }
 
-                alt="plant"
+                alt="analysis"
 
-                className="risce-plant-preview-image"
+                className="risce-analysis-image"
               />
 
-              <p>
+              <label className="risce-upload-button">
 
-                {hoveredPlant === 1
-                  ? "Healthy Vineyard"
-                  : "Diseased Vineyard"}
+                Upload Photos of Plant
 
-              </p>
+                <input
+                  type="file"
+                  hidden
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                />
 
-              {hoveredPlant === 0 && (
+              </label>
 
-                <div className="risce-click-hint">
+              <button
+                className="risce-check-button"
 
-                  Click To Inspect
+                onClick={() => {
+                  setShowSuggestions(true);
+                }}
+              >
+
+                Check for problems
+
+              </button>
+
+              {showSuggestions && (
+
+                <div className="risce-result-box">
+
+                  <h3>
+                    Possible Issues
+                  </h3>
+
+                  <ul>
+
+                    <li>
+                      Pest Attack,
+                      Grasshoppers or Weevils
+                      (Certainty - 60%)
+                    </li>
+
+                  </ul>
+
+                  <h3 className="risce-suggestion-heading">
+                    Suggestions
+                  </h3>
+
+                  <div className="risce-solution-button-container">
+
+                    <button
+                      className="risce-solution-button"
+
+                      onClick={() => {
+                        setShowChemicalPopup(true);
+                      }}
+                    >
+
+                      Chemical Solution
+
+                    </button>
+
+                    <button
+                      className="risce-solution-button"
+
+                      onClick={() => {
+                        setShowNaturalPopup(true);
+                      }}
+                    >
+
+                      Natural Solution
+
+                    </button>
+
+                  </div>
+
+                  <h3>
+                    General Farmer's Approach
+                  </h3>
+
+                  <a
+                    href="https://www.fao.org"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="risce-farmer-link"
+                  >
+
+                    Read Guidelines
+
+                  </a>
 
                 </div>
               )}
@@ -334,299 +373,178 @@ const VineyardHoverLayer = () => {
 
         </div>
 
-        {/* RIGHT PANEL */}
-        {selectedProblemPlant && (
+        {/* CHEMICAL POPUP */}
+        {showChemicalPopup && (
 
-          <div className="risce-analysis-panel">
+          <div className="risce-popup-overlay">
 
-            <h2 className="risce-analysis-heading">
+            <div className="risce-popup-box">
 
-              Vineyard Disease Analysis
+              <button
+                className="risce-popup-close"
 
+                onClick={() => {
+                  setShowChemicalPopup(false);
+                }}
+              >
+
+                ✕
+
+              </button>
+
+              <h2>
+                Chemical Solutions
+              </h2>
+
+              <ul>
+
+                <li>
+                  <strong>Nexa Lotte</strong> :
+                  Universal insect spray commonly
+                  used in Germany.
+                </li>
+
+                <li>
+                  <strong>Celaflor</strong> :
+                  Specialized pest-control spray
+                  for vineyards and crops.
+                </li>
+
+                <li>
+                  <strong>Ink Home Protect 171</strong> :
+                  Water-based pyrethrin spray.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+        )}
+
+        {/* NATURAL POPUP */}
+        {showNaturalPopup && (
+
+          <div className="risce-popup-overlay">
+
+            <div className="risce-popup-box">
+
+              <button
+                className="risce-popup-close"
+
+                onClick={() => {
+                  setShowNaturalPopup(false);
+                }}
+              >
+
+                ✕
+
+              </button>
+
+              <h2>
+                Natural Solutions
+              </h2>
+
+              <ul>
+
+                <li>
+                  Cut and remove affected areas.
+                </li>
+
+                <li>
+                  Apply neem oil spray weekly.
+                </li>
+
+                <li>
+                  Maintain airflow between plants.
+                </li>
+
+                <li>
+                  Avoid excessive irrigation.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+        )}
+
+        {/* STORIES */}
+        <section className="vcs-section">
+
+          <div className="vcs-header">
+
+            <span className="vcs-eyebrow">
+              From the Field
+            </span>
+
+            <h2 className="vcs-heading">
+              Vine Care Stories
             </h2>
 
-            <img
-              src={
-                uploadedImage
-                  ? uploadedImage
-                  : Unhealthy
-              }
+            <p className="vcs-subheading">
 
-              alt="analysis"
+              Real stories from growers,
+              farmers, and families who tend
+              the vine season after season.
 
-              className="risce-analysis-image"
-            />
+            </p>
 
-            <label className="risce-upload-button">
+          </div>
 
-              Upload Photos of Plant
+          <div className="vcs-grid">
 
-              <input
-                type="file"
-                hidden
-                accept="image/*"
-                onChange={handleImageUpload}
-              />
+            {stories.map((story) => (
 
-            </label>
+              <div
+                className="vcs-card"
+                key={story.id}
+              >
 
-            <button
-              className="risce-check-button"
+                <div className="vcs-card-top">
 
-              onClick={() => {
-                setShowSuggestions(true);
-              }}
-            >
+                  <span className="vcs-icon">
+                    {story.icon}
+                  </span>
 
-              Check for problems
+                  <span className="vcs-tag">
+                    {story.tag}
+                  </span>
 
-            </button>
+                </div>
 
-            {showSuggestions && (
-
-              <div className="risce-result-box">
-
-                <h3>
-                  Possible Issues
+                <h3 className="vcs-card-title">
+                  {story.title}
                 </h3>
 
-                <ul>
+                <p className="vcs-card-excerpt">
+                  {story.excerpt}
+                </p>
 
-                  <li>
-                    Pest Attack,
-                    Grasshoppers or Weevils
-                    (Certainty - 60%)
-                  </li>
+                <div className="vcs-card-footer">
 
-                </ul>
+                  <span className="vcs-card-source">
+                    {story.source}
+                  </span>
 
-                <h3 className="risce-suggestion-heading">
-                  Suggestions
-                </h3>
+                  <button className="vcs-read-btn">
 
-                <div className="risce-solution-button-container">
-
-                  <button
-                    className="risce-solution-button"
-
-                    onClick={() => {
-                      setShowChemicalPopup(true);
-                    }}
-                  >
-
-                    Chemical Solution
-
-                  </button>
-
-                  <button
-                    className="risce-solution-button"
-
-                    onClick={() => {
-                      setShowNaturalPopup(true);
-                    }}
-                  >
-
-                    Natural Solution
+                    Read More →
 
                   </button>
 
                 </div>
 
-                <h3>
-                  General Farmer's Approach
-                </h3>
-
-                <a
-                  href="https://www.fao.org"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="risce-farmer-link"
-                >
-
-                  Read Guidelines
-
-                </a>
-
               </div>
-            )}
-
-          </div>
-        )}
-
-      </div>
-
-      {/* CHEMICAL POPUP */}
-      {showChemicalPopup && (
-
-        <div className="risce-popup-overlay">
-
-          <div className="risce-popup-box">
-
-            <button
-              className="risce-popup-close"
-
-              onClick={() => {
-                setShowChemicalPopup(false);
-              }}
-            >
-
-              ✕
-
-            </button>
-
-            <h2>
-              Chemical Solutions
-            </h2>
-
-            <ul>
-
-              <li>
-                <strong>Nexa Lotte</strong> :
-                Universal insect spray commonly
-                used in Germany.
-              </li>
-
-              <li>
-                <strong>Celaflor</strong> :
-                Specialized pest-control spray
-                for vineyards and crops.
-              </li>
-
-              <li>
-                <strong>Ink Home Protect 171</strong> :
-                Water-based pyrethrin spray.
-              </li>
-
-            </ul>
+            ))}
 
           </div>
 
-        </div>
-      )}
+        </section>
 
-      {/* NATURAL POPUP */}
-      {showNaturalPopup && (
+      </>
+    );
+  };
 
-        <div className="risce-popup-overlay">
-
-          <div className="risce-popup-box">
-
-            <button
-              className="risce-popup-close"
-
-              onClick={() => {
-                setShowNaturalPopup(false);
-              }}
-            >
-
-              ✕
-
-            </button>
-
-            <h2>
-              Natural Solutions
-            </h2>
-
-            <ul>
-
-              <li>
-                Cut and remove affected areas.
-              </li>
-
-              <li>
-                Apply neem oil spray weekly.
-              </li>
-
-              <li>
-                Maintain airflow between plants.
-              </li>
-
-              <li>
-                Avoid excessive irrigation.
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-      )}
-
-      {/* STORIES */}
-      <section className="vcs-section">
-
-        <div className="vcs-header">
-
-          <span className="vcs-eyebrow">
-            From the Field
-          </span>
-
-          <h2 className="vcs-heading">
-            Vine Care Stories
-          </h2>
-
-          <p className="vcs-subheading">
-
-            Real stories from growers,
-            farmers, and families who tend
-            the vine season after season.
-
-          </p>
-
-        </div>
-
-        <div className="vcs-grid">
-
-          {stories.map((story) => (
-
-            <div
-              className="vcs-card"
-              key={story.id}
-            >
-
-              <div className="vcs-card-top">
-
-                <span className="vcs-icon">
-                  {story.icon}
-                </span>
-
-                <span className="vcs-tag">
-                  {story.tag}
-                </span>
-
-              </div>
-
-              <h3 className="vcs-card-title">
-                {story.title}
-              </h3>
-
-              <p className="vcs-card-excerpt">
-                {story.excerpt}
-              </p>
-
-              <div className="vcs-card-footer">
-
-                <span className="vcs-card-source">
-                  {story.source}
-                </span>
-
-                <button className="vcs-read-btn">
-
-                  Read More →
-
-                </button>
-
-              </div>
-
-            </div>
-          ))}
-
-        </div>
-
-      </section>
-
-    </>
-  );
-};
-
-export default VineyardHoverLayer;
+  export default VineyardHoverLayer;

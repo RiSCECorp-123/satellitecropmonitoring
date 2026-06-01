@@ -41,6 +41,8 @@
   position: relative;
 
   width: 70%;
+
+  overflow: visible;
 }
 
 .risce-vineyard-main-image {
@@ -79,11 +81,13 @@
 
   overflow: hidden;
 
-  z-index: 10;
+  z-index: 100;
 
   cursor: pointer;
 
   animation: risceFadeIn 0.25s ease;
+
+  transform: translate(-50%, -115%);
 }
 
 .risce-plant-preview-image {
@@ -791,3 +795,64 @@
 
   background: #ff5252;
 } 
+
+
+.risce-click-hotspot {
+
+  position: absolute;
+
+  width: 24px;
+
+  height: 24px;
+
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  background: transparent;
+}
+
+
+
+
+
+.risce-plant-preview-card {
+
+  position: absolute;
+
+  width: 220px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  z-index: 100;
+
+  cursor: pointer;
+
+  animation: risceFadeIn 0.25s ease;
+
+  transform: translate(-50%, -115%);
+}
+.risce-vineyard-image-wrapper {
+
+  position: relative;
+
+  width: 70%;
+
+  overflow: visible;
+}
+/* =========================================
+   PULSE
+========================================= */
+
