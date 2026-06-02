@@ -5,7 +5,7 @@ import Week3 from "../assets/Vineyard.jpg";
 
 export const vineyardWeeklyData = [
   {
-    week: "18.05-25.05",
+    week: "02.06-09.06",
     image: Week1,
     weather: {
       condition: "Sunny",
@@ -22,7 +22,7 @@ export const vineyardWeeklyData = [
     ]
   },
   {
-    week: "25.05-31.05",
+    week: "10.06-17.06",
     image: Week2,
     weather: {
       condition: "Partly Cloudy",
@@ -41,7 +41,7 @@ export const vineyardWeeklyData = [
     ]
   },
   {
-    week: "01.06-08.06",
+    week: "18.06-25.06",
     image: Week3,
     weather: {
       condition: "Cloudy",
