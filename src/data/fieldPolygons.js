@@ -45,7 +45,7 @@ export const fieldPolygons = [
   },
   {
     id: 4,
-    name: "Sina's Viyeyard",
+    name: "Sina's Vineyard",
     color: "#70007876",
     paths: [
       { lat: 51.332068, lng:12.253568 },
