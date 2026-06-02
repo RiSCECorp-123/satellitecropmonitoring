@@ -29,7 +29,7 @@ const GoogleMapView = () => {
 
     return (
       name.toLowerCase().includes("vineyard") ||
-      name.toLowerCase().includes("viyeyard")
+      name.toLowerCase().includes("vineyard")
     );
   };
 
