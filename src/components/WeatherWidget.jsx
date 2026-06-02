@@ -1,14 +1,8 @@
-import {
-  FaSun
-} from "react-icons/fa";
-
-import {
-  weatherData
-} from "../data/weatherData";
+import { FaSun } from "react-icons/fa";
 
 import "../styles/weather.unique.css";
 
-const WeatherWidget = () => {
+const WeatherWidget = ({ weather }) => {
 
   return (
 
@@ -19,13 +13,11 @@ const WeatherWidget = () => {
         <FaSun className="risce-weather-icon" />
 
         <div>
-          <h2>
-            {weatherData.condition}
-          </h2>
 
-          <p>
-            {weatherData.temperature}
-          </p>
+          <h2>{weather.condition}</h2>
+
+          <p>{weather.temperature}</p>
+
         </div>
 
       </div>
@@ -34,16 +26,16 @@ const WeatherWidget = () => {
 
         <p>
           Humidity:
-          {weatherData.humidity}
+          {weather.humidity}
         </p>
 
         <p>
           Wind:
-          {weatherData.wind}
+          {weather.wind}
         </p>
 
         <p className="risce-weather-alert">
-          {weatherData.alert}
+          {weather.alert}
         </p>
 
       </div>

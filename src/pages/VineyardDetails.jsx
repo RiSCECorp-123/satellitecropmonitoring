@@ -1,31 +1,34 @@
+import { useState } from "react";
 import WeekTabs from "../components/WeekTabs";
-
 import WeatherWidget from "../components/WeatherWidget";
-
 import VineyardHoverLayer from "../components/VinyardHoverLayer";
-
+import { vineyardWeeklyData } from "../data/weatherData";
 import "../styles/vineyard.unique.css";
 
 const VineyardDetails = () => {
+  const [activeWeek, setActiveWeek] = useState(0);
+
+  const currentWeek = vineyardWeeklyData[activeWeek];
+  const weekLabels = vineyardWeeklyData.map((w) => w.week);
 
   return (
-
     <div className="risce-vineyard-page">
-
-      {/* TITLE */}
       <h1 className="risce-vineyard-title">
         Sina's Vineyard Monitoring
       </h1>
 
-      {/* TABS */}
-      <WeekTabs />
+      <WeekTabs
+        activeWeek={activeWeek}
+        setActiveWeek={setActiveWeek}
+        weeks={weekLabels}
+      />
 
-      {/* WEATHER */}
-      <WeatherWidget />
+      <WeatherWidget weather={currentWeek.weather} />
 
-      {/* SATELLITE */}
-      <VineyardHoverLayer />
-
+      <VineyardHoverLayer
+        satelliteImage={currentWeek.image}
+        affectedPlants={currentWeek.affectedPlants}
+      />
     </div>
   );
 };
