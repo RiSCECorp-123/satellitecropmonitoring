@@ -32,14 +32,17 @@ const GoogleMapView = () => {
       name.toLowerCase().includes("vineyard")
     );
   };
+ 
+ 
 
   return (
 
     <LoadScript
       googleMapsApiKey={
-        import.meta.env.VITE_GOOGLE_MAPS_KEY
+        import.meta.env.VITE_GOOGLE_MAP_API_KEY
       }
     >
+    
 
       <GoogleMap
         mapContainerStyle={containerStyle}
