@@ -1,48 +1,5 @@
-/* ── Global Reset ── */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+*{
   margin: 0;
   padding: 0;
-}
-
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: #f0f4f0;
-  color: #1a2e1a;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
-}
-
-/* ── Leaflet tooltip reset (global, scoped by class) ── */
-.ft-map-tooltip.leaflet-tooltip {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-
-.ft-map-tooltip.leaflet-tooltip::before {
-  display: none !important;
-}
-
-/* ── Custom scrollbar ── */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #e8f0e8;
-}
-::-webkit-scrollbar-thumb {
-  background: #4a9e4a;
-  border-radius: 3px;
+   box-sizing: border-box;
 }

@@ -78,9 +78,9 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 5px solid rgba(255, 82, 82, 0.7);
+  border: 10px solid rgba(252, 39, 39, 0.961);
   transform: translate(-50%, -50%);
-  animation: riscePulse 1.8s infinite;
+  animation: riscePulse 1.6s infinite;
   pointer-events: none;
 }
 
