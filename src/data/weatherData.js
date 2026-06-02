@@ -44,7 +44,7 @@ export const vineyardWeeklyData = [
     week: "01.06-08.06",
     image: Week3,
     weather: {
-      condition: "Rainy",
+      condition: "Cloudy",
       temperature: "22°C",
       humidity: "81%",
       wind: "13 km/h",

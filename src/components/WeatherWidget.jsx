@@ -1,4 +1,4 @@
-import { FaSun } from "react-icons/fa";
+// import { FaSun } from "react-icons/fa";
 
 import "../styles/weather.unique.css";
 
@@ -10,7 +10,7 @@ const WeatherWidget = ({ weather }) => {
 
       <div className="risce-weather-left">
 
-        <FaSun className="risce-weather-icon" />
+        {/* <FaSun className="risce-weather-icon" /> */}
 
         <div>
 
