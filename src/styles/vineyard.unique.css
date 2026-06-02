@@ -78,7 +78,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 10px solid rgba(252, 39, 39, 0.961);
+  border: 8px solid rgba(252, 39, 39, 0.961);
   transform: translate(-50%, -50%);
   animation: riscePulse 1.6s infinite;
   pointer-events: none;
