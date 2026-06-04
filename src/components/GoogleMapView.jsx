@@ -24,7 +24,7 @@ const GoogleMapView = () => {
   const [position, setPosition] =
     useState(null);
 
-  // /* CHECK VINEYARD */  for the apocalypse and Actions for the github 
+
   const isVineyard = (name) => {
 
     return (
