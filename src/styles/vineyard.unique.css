@@ -486,3 +486,113 @@
     align-items: flex-start;
   }
 }
+
+
+/* =========================================
+   AI CHATBOT POPUP
+========================================= */
+.risce-chatbot-popup {
+  position: absolute;
+  width: 340px;
+  background: #0b3d2a;
+  border-radius: 14px;
+  padding: 24px 22px 18px;
+  z-index: 200;
+  transform: translate(-50%, -110%);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  animation: risceFadeIn 0.25s ease;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+.risce-chatbot-icon {
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  background: #cddc39;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.risce-chatbot-close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.risce-chatbot-close:hover {
+  background: #ff5252;
+  transform: rotate(90deg);
+}
+
+.risce-chatbot-message {
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 14px 0 18px 0;
+}
+
+.risce-chatbot-message strong {
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.risce-chatbot-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #d9d9d9;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: #062d1f;
+  outline: none;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.risce-chatbot-input::placeholder {
+  color: #062d1f;
+  font-weight: 500;
+}
+
+.risce-chatbot-submit-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+.risce-chatbot-submit {
+  background: lightgreen;
+  border: none;
+  color: #cddc39;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  padding: 6px 10px;
+  transition: 0.3s ease;
+}
+
+.risce-chatbot-submit:hover {
+  color: #ffe082;
+  transform: translateY(-2px);
+}

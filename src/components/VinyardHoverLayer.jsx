@@ -48,6 +48,8 @@ const VineyardHoverLayer = ({ satelliteImage, affectedPlants = [] }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showChemicalPopup, setShowChemicalPopup] = useState(false);
   const [showNaturalPopup, setShowNaturalPopup] = useState(false);
+  const [showChatBot, setShowChatBot] = useState(false);
+  const [chatDot, setChatDot] = useState(null);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -91,12 +93,48 @@ const VineyardHoverLayer = ({ satelliteImage, affectedPlants = [] }) => {
                 setShowSuggestions(false);
                 setUploadedImage(null);
                 setSelectedDot(dot);
+                setChatDot(dot);
+                setShowChatBot(true);
               }}
             />
           ))}
 
+          {/* AI CHAT BOT POPUP */}
+          {showChatBot && chatDot && (
+            <div
+              className="risce-chatbot-popup"
+              style={{
+                left: chatDot.x,
+                top: chatDot.y,
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="risce-chatbot-icon">🤖</div>
+              <button
+                className="risce-chatbot-close"
+                onClick={() => setShowChatBot(false)}
+              >
+                ✕
+              </button>
+              <p className="risce-chatbot-message">
+                <strong>Dear Sina,</strong>
+                <br />
+                low NDVI is these area indicates low Nitrogen and decreased
+                greenness in the plants. Want to ask us more?
+              </p>
+              <input
+                type="text"
+                className="risce-chatbot-input"
+                placeholder="Ask anything......"
+              />
+              <div className="risce-chatbot-submit-wrap">
+                <button className="risce-chatbot-submit">Submit</button>
+              </div>
+            </div>
+          )}
+
           {/* FLOATING DISEASED PLANT CARD */}
-          {selectedDot && (
+          {selectedDot && !showChatBot && (
             <div
               className="risce-plant-preview-card"
               style={{
