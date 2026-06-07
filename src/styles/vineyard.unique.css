@@ -581,7 +581,7 @@
 }
 
 .risce-chatbot-submit {
-  background: lightgreen;
+  background: transparent;
   border: none;
   color: #cddc39;
   font-size: 16px;
