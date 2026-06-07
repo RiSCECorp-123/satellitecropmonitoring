@@ -12,7 +12,7 @@ export const vineyardWeeklyData = [
       temperature: "27°C",
       humidity: "62%",
       wind: "9 km/h",
-      alert: "No weather alerts"
+      
     },
     affectedPlants: [
       { id: 1, x: "44%", y: "10%" },
@@ -29,7 +29,7 @@ export const vineyardWeeklyData = [
       temperature: "24°C",
       humidity: "70%",
       wind: "11 km/h",
-      alert: "Light rainfall expected"
+      
     },
     affectedPlants: [
       { id: 1, x: "44%", y: "10%" },
@@ -48,7 +48,7 @@ export const vineyardWeeklyData = [
       temperature: "22°C",
       humidity: "81%",
       wind: "13 km/h",
-      alert: "High fungal risk"
+      
     },
     affectedPlants: [
       { id: 1, x: "44%", y: "10%" },
