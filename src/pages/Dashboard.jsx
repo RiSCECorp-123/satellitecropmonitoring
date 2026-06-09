@@ -121,3 +121,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+// dash board should be connected to DB
