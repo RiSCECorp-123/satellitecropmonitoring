@@ -7,3 +7,14 @@ val.map(()=>{
 
 
 })
+
+
+
+
+
+// server connection 
+//    whatever function makes it right 
+
+// authentication 
+
+// 
