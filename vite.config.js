@@ -7,6 +7,6 @@ export default defineConfig({
   base: "/satellitecropmonitoring/",
   server:{
    open : true,
-   
+   port: 3002,
   },
 })

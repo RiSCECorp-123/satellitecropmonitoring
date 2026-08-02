@@ -1,20 +1,14 @@
 const val = [];
 
+val.map(() => {
+  console.log("this map function is running behind the server");
 
-val.map(()=>{
+  console.log("This file can be generated thoough the monitoring sertvices");
+});
 
-       console.log('this map function is running behind the server')
+// server connection
+//    whatever function makes it right
 
-   console.log('This file can be generated thoough the monitoring sertvices')
-})
+// authentication
 
-
-
-
-
-// server connection 
-//    whatever function makes it right 
-
-// authentication 
-
-// 
+//
