@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 
 export const AuthProvider = ({ children }) => {
-  // keeps the user logged in after refresh
+  // restore user after page refresh
   const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem("user");
-    return saved ? JSON.parse(saved) : null;
+    try {
+      const saved = localStorage.getItem("user");
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
   });
 
   useEffect(() => {
@@ -17,16 +21,16 @@ export const AuthProvider = ({ children }) => {
   }, [user]);
 
   const login = (name, password) => {
-    if (name && password) {
-      setUser({ name, role: "farmer" });
+    if (name?.trim() && password?.trim()) {
+      setUser({ name: name.trim(), role: "farmer" });
       return true;
     }
     return false;
   };
 
   const register = (name, password) => {
-    if (name && password) {
-      setUser({ name, role: "farmer" });
+    if (name?.trim() && password?.trim()) {
+      setUser({ name: name.trim(), role: "farmer" });
       return true;
     }
     return false;

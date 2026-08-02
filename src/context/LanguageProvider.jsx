@@ -82,7 +82,7 @@ export const LanguageProvider = ({ children }) => {
     localStorage.setItem("lang", lang);
   }, [lang]);
 
-  // if a key is missing in a language, fall back to English
+  // missing keys automatically fall back to English
   const t = { ...translations.en, ...(translations[lang] || {}) };
 
   const languages = [
