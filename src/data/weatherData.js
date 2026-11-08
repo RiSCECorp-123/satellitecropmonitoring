@@ -4,12 +4,12 @@ import Week3 from "../assets/Vineyard.jpg";
 
 export const vineyardWeeklyData = [
   {
-    week: "17.08-23.08",
+    week: "10.11-17.11",
     image: Week1,
     weather: {
-      condition: "Moderately Rainy",
-      temperature: "20°C",
-      humidity: "58%",
+      condition: "Light Rainy",
+      temperature: "5°C",
+      humidity: "51%",
       wind: "9 km/h",
     },
     affectedPlants: [
@@ -20,13 +20,13 @@ export const vineyardWeeklyData = [
     ],
   },
   {
-    week: "24.08-30.08",
+    week: "18.11-24.11",
     image: Week2,
     weather: {
       condition: "Partly Cloudy",
-      temperature: "18°C",
-      humidity: "55%",
-      wind: "11 km/h",
+      temperature: "7°C",
+      humidity: "34%",
+      wind: "8-11 km/h",
     },
     affectedPlants: [
       { id: 1, x: "44%", y: "10%" },
@@ -38,13 +38,13 @@ export const vineyardWeeklyData = [
     ],
   },
   {
-    week: "31.08-06.09",
+    week: "25.11-01.12",
     image: Week3,
     weather: {
-      condition: "Cloudy",
-      temperature: "16°C",
-      humidity: "22%",
-      wind: "13 km/h",
+      condition: "Partly Cloudy",
+      temperature: "4°C",
+      humidity: "31",
+      wind: "11-17km/h",
     },
     affectedPlants: [
       { id: 1, x: "44%", y: "10%" },

@@ -1,7 +1,6 @@
 name: Deploy React + Vite to GitHub Pages
 
 on:
-
   workflow_dispatch:
 
   push:
@@ -12,13 +11,10 @@ permissions:
   contents: write
 
 jobs:
-
   build-deploy:
-
     runs-on: ubuntu-latest
 
     steps:
-
       # Checkout Repository
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -51,5 +47,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
           publish_dir: ./dist
-
-          
